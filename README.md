@@ -1,8 +1,14 @@
 # Dead Street - play
 
-A 2D pixel-art zombie shooter for the browser and iPhone. Hold the street through 15 stages, find 10 guns in cars and houses, and fly over the horde with an upgradeable jetpack.
+A 2D pixel-art zombie shooter for the browser and iPhone. Hold the line through 15 stages across 5 locations, find 10 guns, climb obstacle courses, blow up explosive barrels, and fly over the horde with an upgradeable jetpack.
 
-**Play:** open the link GitHub Pages gives this repo (Settings -> Pages), or open `index.html` directly in a browser.
+- **5 locations** (Suburban Street, Downtown, Desert Highway, Industrial Yard, Frozen Town), a new one every 3 stages
+- **Obstacles:** hop onto crates, rubble and a wrecked bus; dodge barbed wire, fire and toxic sludge
+- **Explosive barrels** that chain-react (they hurt you too)
+- **Loot** in houses, cars, dumpsters, lockers and rooftop caches
+- **Jetpack** with 3 upgrade tiers and homing missiles, plus perk crates
+
+**Play:** https://sdclarke14.github.io/Dead-Street-Play/ (or open `index.html` directly in a browser).
 
 **iPhone:** open the link in Safari, turn the phone sideways, then Share -> Add to Home Screen for full-screen play.
 
