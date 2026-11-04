@@ -10,7 +10,13 @@ A 2D pixel-art zombie shooter for the browser and iPhone. Hold the line through 
 
 **Play:** https://sdclarke14.github.io/Dead-Street-Play/ (or open `index.html` directly in a browser).
 
-**iPhone:** open the link in Safari, turn the phone sideways, then Share -> Add to Home Screen for full-screen play.
+**iPhone:** open the link in Safari, pick Vertical (phone upright) or Horizontal (phone sideways), then Share -> Add to Home Screen for full-screen play.
+
+
+## New: your screen, your character
+- **Choose Vertical or Horizontal** the first time you play (switch any time from the main menu). Vertical fits every iPhone, including the notch and home bar.
+- **Customize** skin, hair, jacket, pants, boots or a full outfit. Unlock gear by leveling up, spending gold, or finding it in loot.
+- **Earn XP and gold** from kills, searching, and coins on the obstacle courses; **spend gold on permanent upgrades** (life, damage, speed, loot, jetpack fuel). Progress saves in your browser.
 
 ## Controls
 | Action | Keyboard / mouse | iPhone |
