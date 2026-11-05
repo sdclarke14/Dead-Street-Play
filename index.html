@@ -287,7 +287,7 @@ function startStage(s){
   p.jet.fuel=fuelMax(p.jet.tier); p.jet.mis=MIS[p.jet.tier];
   takeSnap(); const L=locOf(s);
   banner=subOf(s)===0?{t:3,text:LOCS[L].n,sub:(s===1?'Mission '+M.id+'  -  ':'')+'Stage '+s+'  -  kill '+quota+' '+M.foe}:{t:2.4,text:'STAGE '+s,sub:LOCS[L].n+'  -  kill '+quota+' '+M.foe};
-  state='play';
+  state='play'; showViewHint();
   try{ localStorage.setItem(M.id===1?'ds_best':'ds_best_m'+M.id,String(Math.max(bestStage,s))); bestStage=Math.max(bestStage,s);}catch(e){}
 }
 function takeSnap(){
@@ -461,7 +461,7 @@ function update(dt){
   if(state==='dead'){ deadT+=dt; if(deadT>1.8) respawn(); stepFx(dt); return; }
   if(state==='clear'){ clearT-=dt; zs.forEach(z=>z.hp=-1); zs=[]; stepFx(dt); if(clearT<=0){ if(stage>=MAXSTAGE){ state='win'; prof.mdone=prof.mdone||[]; if(!prof.mdone.includes(M.id)){ prof.mdone.push(M.id); const rw=300*M.id; prof.gold+=rw; stageGain.gold+=rw; } saveProfile(); } else { p.hp=100; startStage(stage+1); } } return; }
   if(room){ updateRoom(dt); return; }
-  stageT+=dt;
+  stageT+=dt; if(viewHint){ viewHint.t-=dt; if(viewHint.t<=0) viewHint=null; }
   // --- player
   const L=keys.left, R=keys.right; let mv=(R?1:0)-(L?1:0); if(joy&&joy.ax) mv=joy.ax; const jk=keys.jump||(joy&&joy.jump);
   const sl=p.slime>0?.7:1;
@@ -815,13 +815,13 @@ function setSlider(e){ if(!sliderR) return; const [x]=toLogical(e); let v=70+(x-
 function pbtns(){                       // on-screen controls: screen coords, top-left x,y + w,h (all rectangles)
   const b=H-(PORT?PADB+6:0), a=[];
   if(PORT){
-    a.push({k:'fire',x:W-204,y:b-126,w:190,h:122,t:'FIRE',c:'#ff4a3a'},{k:'next',x:W-204,y:b-126-70,w:190,h:62,t:'GUN',c:'#f0b72a'},
-      {k:'use',x:W-300,y:b-190,w:86,h:80,t:'USE',c:'#4fd37a'},{k:'msl',x:W-300,y:b-102,w:86,h:90,t:'MSL',c:'#ff8a2a'},
+    if(LANE) a.push({k:'fire',x:W-190,y:b-122,w:176,h:118,t:'FIRE',c:'#ff4a3a'},{k:'jump',x:W-290,y:b-122,w:92,h:118,t:'JUMP',c:'#4aa0e8'}); else a.push({k:'fire',x:W-262,y:b-122,w:248,h:118,t:'FIRE',c:'#ff4a3a'});
+    a.push({k:'msl',x:W-290,y:b-192,w:78,h:62,t:'MSL',c:'#ff8a2a'},{k:'use',x:W-206,y:b-192,w:78,h:62,t:'USE',c:'#4fd37a'},{k:'next',x:W-122,y:b-192,w:108,h:62,t:'GUN',c:'#f0b72a'},
       {k:'pause',x:W-62,y:VY+12,w:46,h:46,t:'II',c:'#cfd6e6'});
     for(let i=0;i<10;i++) a.push({k:'gun'+i,x:13+i*52,y:VY+VH+6,w:46,h:46,i,slot:true});
   } else {
-    a.push({k:'fire',x:W-196,y:b-158,w:172,h:136,t:'FIRE',c:'#ff4a3a'},{k:'next',x:W-196,y:b-158-68,w:172,h:60,t:'GUN',c:'#f0b72a'},
-      {k:'use',x:W-292,y:b-218,w:86,h:80,t:'USE',c:'#4fd37a'},{k:'msl',x:W-292,y:b-124,w:86,h:90,t:'MSL',c:'#ff8a2a'},
+    if(LANE) a.push({k:'fire',x:W-196,y:b-150,w:172,h:128,t:'FIRE',c:'#ff4a3a'},{k:'jump',x:W-292,y:b-150,w:88,h:128,t:'JUMP',c:'#4aa0e8'}); else a.push({k:'fire',x:W-268,y:b-150,w:244,h:128,t:'FIRE',c:'#ff4a3a'});
+    a.push({k:'msl',x:W-292,y:b-218,w:80,h:60,t:'MSL',c:'#ff8a2a'},{k:'use',x:W-206,y:b-218,w:80,h:60,t:'USE',c:'#4fd37a'},{k:'next',x:W-120,y:b-218,w:96,h:60,t:'GUN',c:'#f0b72a'},
       {k:'pause',x:W-60,y:94,w:44,h:44,t:'II',c:'#cfd6e6'});
   }
   const ks=btnK();
@@ -872,9 +872,10 @@ function drawControls(){
     if(b.k==='next'){ drawGunBtn(b,on); ctx.globalAlpha=1; return; }
     const lock=b.k==='msl'&&!(p&&p.jet.tier>=2);
     glassKey(b,on,lock); ctx.lineCap='round'; ctx.lineJoin='round';
-    if(b.k==='use'){ ctx.strokeStyle=on?'#fff':b.c; ctx.lineWidth=4; ctx.beginPath(); ctx.arc(cx,cy-12,9,0,7); ctx.moveTo(cx,cy-3); ctx.lineTo(cx,cy+2); ctx.stroke(); txt('USE',cx,cy+22,Math.min(20,b.h*.26),on?'#fff':'#d6f6e0',undefined,false); }
-    else if(b.k==='msl'){ const c=lock?'#6a7080':(on?'#fff':b.c); ctx.fillStyle=c; ctx.save(); ctx.translate(cx,cy-16); ctx.rotate(-.5); ctx.beginPath(); ctx.moveTo(-16,-4); ctx.lineTo(8,-4); ctx.lineTo(18,0); ctx.lineTo(8,4); ctx.lineTo(-16,4); ctx.closePath(); ctx.fill(); ctx.beginPath(); ctx.moveTo(-16,-4); ctx.lineTo(-22,-10); ctx.lineTo(-10,-4); ctx.moveTo(-16,4); ctx.lineTo(-22,10); ctx.lineTo(-10,4); ctx.fill(); ctx.restore();
-      txt(lock?'LOCKED':'MSL  '+(p?p.jet.mis:0),cx,cy+26,lock?12:16,lock?'#7a8090':(on?'#fff':'#ffd2a8'),undefined,false); }
+    if(b.k==='use'){ ctx.strokeStyle=on?'#fff':b.c; ctx.lineWidth=4; ctx.beginPath(); ctx.arc(cx,cy-9,7,0,7); ctx.moveTo(cx,cy-2); ctx.lineTo(cx,cy+2); ctx.stroke(); txt('USE',cx,cy+19,Math.min(18,b.h*.3),on?'#fff':'#d6f6e0',undefined,false); }
+    else if(b.k==='jump'){ ctx.strokeStyle=on?'#fff':b.c; ctx.lineWidth=7; ctx.beginPath(); ctx.moveTo(cx-18,cy-2); ctx.lineTo(cx,cy-20); ctx.lineTo(cx+18,cy-2); ctx.moveTo(cx-18,cy+16); ctx.lineTo(cx,cy-2); ctx.lineTo(cx+18,cy+16); ctx.stroke(); txt('JUMP',cx,cy+b.h*.36,Math.min(18,b.h*.16),on?'#fff':'#d6e8fa',undefined,false); }
+    else if(b.k==='msl'){ const c=lock?'#6a7080':(on?'#fff':b.c); ctx.fillStyle=c; ctx.save(); ctx.translate(cx,cy-10); ctx.rotate(-.5); ctx.beginPath(); ctx.moveTo(-16,-4); ctx.lineTo(8,-4); ctx.lineTo(18,0); ctx.lineTo(8,4); ctx.lineTo(-16,4); ctx.closePath(); ctx.fill(); ctx.beginPath(); ctx.moveTo(-16,-4); ctx.lineTo(-22,-10); ctx.lineTo(-10,-4); ctx.moveTo(-16,4); ctx.lineTo(-22,10); ctx.lineTo(-10,4); ctx.fill(); ctx.restore();
+      txt(lock?'LOCKED':'MSL  '+(p?p.jet.mis:0),cx,cy+20,lock?11:14,lock?'#7a8090':(on?'#fff':'#ffd2a8'),undefined,false); }
     else if(b.k==='pause'){ ctx.strokeStyle=on?'#fff':b.c; ctx.lineWidth=6; ctx.beginPath(); ctx.moveTo(cx-6,cy-10); ctx.lineTo(cx-6,cy+10); ctx.moveTo(cx+6,cy-10); ctx.lineTo(cx+6,cy+10); ctx.stroke(); }
     ctx.lineCap='butt'; ctx.globalAlpha=1;
   });
@@ -954,7 +955,7 @@ function render(){
   if(p.flash>0){ ctx.fillStyle='rgba(220,20,20,'+Math.min(.3,p.flash*1.5)+')'; ctx.fillRect(0,0,W,H); }
   ctx.restore();
   if(PORT) drawHUDPort(); else { drawHUD(); if(touchDevice&&(state==='play'||state==='dead'||state==='clear')) drawControls(); }
-  if(room) drawRoomHUD();
+  if(room) drawRoomHUD(); drawViewHint();
   const OY=PORT?(VY+VH/2-240):0, tz=PORT?.72:1;
   if(state==='pause'){ mb=[]; ctx.save(); if(PORT){ MOY=PADT; ctx.translate(0,PADT); } else MOY=0; overlay(.72); drawPauseMenu(); ctx.restore(); }
   if(state==='dead'){ overlay(Math.min(.7,deadT*.6)); txt('YOU DIED',W/2,230+OY,64*tz,'#e83a3a'); txt('Back to last checkpoint...',W/2,272+OY,20*tz,'#fff'); }
@@ -1023,6 +1024,13 @@ function pickItem(it){
     else flashMsg('NEED '+(it.u[1]-prof.gold)+' MORE GOLD'); }
   else if(it.u[0]==='lvl') flashMsg('UNLOCKS AT LEVEL '+it.u[1]); else flashMsg('FOUND IN LOOT: search caches, lockers and houses');
 }
+const viewKey=()=>(Q.get('view')||prof.view||'lane')==='side'?'side':'lane';
+function viewGuide(){ return viewKey()==='side'?['SIDE VIEW CONTROLS','Stick: left / right','Pull stick UP: jump,','hold = jetpack']:['LANE VIEW CONTROLS','Stick: any direction','JUMP button: tap = hop,','hold = jetpack']; }
+let viewHint=null;
+function showViewHint(force){ prof.hints=prof.hints||{}; const k=viewKey(); if(!force&&(prof.hints[k]||0)>=3) return; prof.hints[k]=(prof.hints[k]||0)+1; saveProfile();
+  viewHint={k,t:6,lines:k==='side'?['SIDE VIEW','Stick left/right to move','Pull the stick UP to jump, hold to fly']:['LANE VIEW','Stick: walk in any direction','JUMP button: tap to hop, hold to fly']}; }
+function drawViewHint(){ if(!viewHint||state!=='play'||room) return; const h=viewHint, a=Math.min(1,h.t), cx=W/2, y=PORT?VY+VH-96:H*.56; ctx.globalAlpha=a*.92; ctx.fillStyle='#000c'; rrx(cx-190,y-22,380,74,14); ctx.fill(); ctx.strokeStyle=h.k==='side'?'#f0b72a':'#4aa0e8'; ctx.lineWidth=2; ctx.stroke(); ctx.globalAlpha=a;
+  txt(h.lines[0],cx,y-2,15,'#ffe08a'); txt(h.lines[1],cx,y+18,13,'#fff',undefined,false); txt(h.lines[2],cx,y+38,13,'#cfe3ff',undefined,false); ctx.globalAlpha=1; }
 function drawSettings(){
   menuBG(.92); const cx=W/2;
   txt('SETTINGS',cx,PORT?64:56,PORT?38:36,'#ffe08a'); if(settingsFrom==='pause') txt('Game paused',cx,PORT?92:82,14,'#9a9f7a');
@@ -1039,16 +1047,16 @@ function drawSettings(){
   const cx2=PORT?30:420, cy2=PORT?sy+104:sy, cw2=PORT?W-60:300; txt('CONTROLS',cx2,cy2-(PORT?0:0),16,'#9a9f7a','left'); if(PORT){} 
   mbtn(cx2,cy2+14,cw2,54,prof.lefty?'LEFT-HANDED':'RIGHT-HANDED',()=>{ prof.lefty=!prof.lefty; saveProfile(); },{sel:!!prof.lefty,size:20,fill:'#1c2230'});
   txt(prof.lefty?'Move pad on the right, FIRE on the left':'Move pad on the left, FIRE on the right',cx2+cw2/2,cy2+84,13,'#9a9f7a');
-  { const vx=PORT?30:W-270, vy=PORT?cy2+126:H-62, vw=PORT?W-60:250; if(PORT) txt('VIEW',30,cy2+112,16,'#9a9f7a','left');
-    mbtn(vx,vy,vw,PORT?54:48,prof.view==='side'?'VIEW: SIDE':'VIEW: LANE',()=>{ prof.view=prof.view==='side'?'lane':'side'; saveProfile(); applyView(); },{sel:prof.view!=='side',size:PORT?20:17,fill:'#1c2230'});
-    if(PORT) txt(prof.view==='side'?'Classic side-scroller: joystick up = jump / fly':'Walk up and down too. JUMP button: tap to hop, hold in air to fly',30+vw/2,vy+74,12,'#9a9f7a'); }
-  { const bv=prof.btn||100, tx=PORT?30:290, ty=PORT?cy2+264:H-34, tw=PORT?W-60-70:300; sliderR={x:tx,y:ty-24,w:tw,h:48};
+  { const vx=PORT?30:W-250, vy=PORT?cy2+126:H-62, vw=PORT?W-60:230; if(PORT) txt('VIEW',30,cy2+112,16,'#9a9f7a','left');
+    mbtn(vx,vy,vw,PORT?54:48,viewKey()==='side'?'VIEW: SIDE':'VIEW: LANE',()=>{ prof.view=prof.view==='side'?'lane':'side'; saveProfile(); applyView(); showViewHint(true); },{sel:viewKey()!=='side',size:PORT?20:17,fill:'#1c2230'});
+    const g=viewGuide(), ly0=PORT?vy+74:vy-66, lh=PORT?18:15, fs=PORT?12:11; g.forEach((t,i)=>txt(t,vx+(PORT?vw/2:vw/2),ly0+i*lh,fs,i===0?'#ffe08a':'#cfd6e6',undefined,false)); }
+  { const bv=prof.btn||100, tx=PORT?30:290, ty=PORT?cy2+336:H-34, tw=PORT?W-60-70:300; sliderR={x:tx,y:ty-24,w:tw,h:48};
     txt('BUTTON SIZE  '+bv+'%',tx,ty-(PORT?30:24),16,'#9a9f7a','left');
     rrx(tx,ty-5,tw,10,5); ctx.fillStyle='#0b0d12'; ctx.fill(); ctx.strokeStyle='#5a6070'; ctx.lineWidth=2; ctx.stroke();
     const kx=tx+(bv-70)/50*tw; rrx(tx,ty-5,kx-tx,10,5); ctx.fillStyle='#8fd13a'; ctx.fill();
     ctx.beginPath(); ctx.arc(kx,ty,16,0,7); ctx.fillStyle='#ffe08a'; ctx.fill(); ctx.strokeStyle='#14161c'; ctx.lineWidth=3; ctx.stroke();
     const pk=Math.round(50*(bv/100)); glassKey({x:tx+tw+(PORT?20:24)+(50-pk)/2,y:ty-pk/2,w:pk,h:pk,t:'',c:'#5f86c8'},false); }
-  mbtn(PORT?cx-110:20,PORT?H-84:H-62,220,48,settingsFrom==='pause'?'BACK TO PAUSE':'BACK',()=>{ state=settingsFrom; },{size:20});
+  mbtn(PORT?cx-110:20,PORT?H-66:H-62,220,48,settingsFrom==='pause'?'BACK TO PAUSE':'BACK',()=>{ state=settingsFrom; },{size:20});
 }
 function drawPauseMenu(){
   const cx=W/2, y0=PORT?VY+70:150; txt('PAUSED',cx,y0-24,PORT?44:50,'#ffe08a');
@@ -1155,8 +1163,8 @@ function joyMove(e){ if(!joy) return; const [x,y]=toLogical(e); let dx=x-joy.bx,
   if(d>joy.R){ const o=d-joy.R; joy.bx=Math.max(joy.R*.5,Math.min(W-joy.R*.5,joy.bx+dx/d*o)); joy.by=Math.max(joy.R*.5,Math.min(H-joy.R*.5,joy.by+dy/d*o)); dx=x-joy.bx; dy=y-joy.by; d=Math.hypot(dx,dy); if(d>joy.R){ dx*=joy.R/d; dy*=joy.R/d; } }   // base follows the finger, so you never have to travel back to centre
   joy.kx=joy.bx+dx; joy.ky=joy.by+dy;
   const a=Math.abs(dx)/joy.R; joy.ax=a<.16?0:Math.sign(dx)*(.35+.65*Math.min(1,(a-.16)/.74));              // dead zone, then 35%..100% speed
-  const aY=Math.abs(dy)/joy.R, upPull=-dy/joy.R; joy.ay=aY<.16?0:Math.sign(dy)*(.35+.65*Math.min(1,(aY-.16)/(dy<0&&LANE?.5:.74)));      // lane view: pushing up walks you deeper up to ~65%, the last bit of the pull is the jump
-  const up=-dy/joy.R; const pullHi=LANE?.82:.72, pullLo=LANE?.6:.45; if(up>pullHi) joy.pull=true; else if(up<pullLo) joy.pull=false; joy.jump=!!(joy.pull||joy.dbl); if(LANE&&joy.pull&&!joy.dbl&&joy.ay<0) joy.ay=0; }   // pull the stick to the top to jump (hold = jetpack); double-tap-and-hold also works                           // push up = jump (hold in the air = jetpack)
+  const aY=Math.abs(dy)/joy.R, upPull=-dy/joy.R; joy.ay=aY<.16?0:Math.sign(dy)*(.35+.65*Math.min(1,(aY-.16)/.74));
+  const up=-dy/joy.R; if(LANE) joy.jump=false; else if(up>.72||joy.dbl) joy.jump=true; else if(up<.45) joy.jump=false; }   // side view: pull the stick up to jump; lane view: up/down is depth and JUMP is a button                           // push up = jump (hold in the air = jetpack)
 function drawJoy(){ const g=joyGeom(), on=!!joy, bx=on?joy.bx:g.cx, by=on?joy.by:g.cy, R=g.R; ctx.save(); ctx.globalAlpha=on?1:(PORT?.9:.75);
   ctx.fillStyle='rgba(0,0,0,.4)'; ctx.beginPath(); ctx.arc(bx+2,by+6,R,0,7); ctx.fill();
   let gr=ctx.createRadialGradient(bx,by-R*.25,R*.1,bx,by,R); gr.addColorStop(0,'#2d3550'); gr.addColorStop(1,'#10131d'); ctx.fillStyle=gr; ctx.beginPath(); ctx.arc(bx,by,R,0,7); ctx.fill();
