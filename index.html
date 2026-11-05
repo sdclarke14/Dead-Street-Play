@@ -51,7 +51,7 @@ function setLayout(){
     W=540; H=Math.max(960,Math.min(1240,Math.round(540*ah/aw)));          // taller phones get a taller canvas, so the screen is filled
     const TOP=126, GB=56, CTRL=318, avail=H-TOP-GB-CTRL;
     VS=Math.min(.95,avail/540); VW=W/VS; VH=540*VS; VY=TOP+(avail-VH)/2; FS=1.5;
-  } else { W=960; H=540; VW=960; VS=1; VY=0; VH=540; FS=1; }
+  } else { H=540; W=Math.round(Math.max(960,Math.min(1180,540*aw/ah))); VW=W; VS=1; VY=0; VH=540; FS=1; }       // wide phones (iPhone Pro Max) get a wider view instead of black bars
   fit(); updateRotate();
 }
 function fit(){
@@ -750,13 +750,13 @@ function setSlider(e){ if(!sliderR) return; const [x]=toLogical(e); let v=70+(x-
 function pbtns(){                       // on-screen controls: screen coords, top-left x,y + w,h (all rectangles)
   const b=H, a=[];
   if(PORT){
-    a.push({k:'jump',x:252,y:b-128,w:88,h:88,t:'JUMP',c:'#4aa0e8'},{k:'fire',x:356,y:b-190,w:168,h:150,t:'FIRE',c:'#ff4a3a'},
-      {k:'use',x:252,y:b-232,w:80,h:80,t:'USE',c:'#58c878'},{k:'next',x:440,y:b-276,w:84,h:76,t:'GUN',c:'#e8b83a'},
-      {k:'msl',x:20,y:b-262,w:84,h:76,t:'MSL',c:'#ff8a2a',show:!!(p&&p.jet.tier>=2)},{k:'pause',x:W-62,y:VY+12,w:46,h:46,t:'II',c:'#cfd6e6'});
+    a.push({k:'fire',x:356,y:b-190,w:168,h:150,t:'FIRE',c:'#ff4a3a'},
+      {k:'use',x:252,y:b-132,w:92,h:92,t:'USE',c:'#58c878'},{k:'next',x:440,y:b-276,w:84,h:76,t:'GUN',c:'#e8b83a'},
+      {k:'msl',x:20,y:b-300,w:84,h:76,t:'MSL',c:'#ff8a2a',show:!!(p&&p.jet.tier>=2)},{k:'pause',x:W-62,y:VY+12,w:46,h:46,t:'II',c:'#cfd6e6'});
     for(let i=0;i<10;i++) a.push({k:'gun'+i,x:13+i*52,y:VY+VH+6,w:46,h:46,i,slot:true});
   } else {
-    a.push({k:'jump',x:W-292,y:b-118,w:82,h:82,t:'JUMP',c:'#4aa0e8'},{k:'fire',x:W-196,y:b-158,w:172,h:136,t:'FIRE',c:'#ff4a3a'},
-      {k:'use',x:W-288,y:b-212,w:70,h:70,t:'USE',c:'#58c878'},{k:'next',x:W-110,y:b-240,w:84,h:72,t:'GUN',c:'#e8b83a'},
+    a.push({k:'fire',x:W-196,y:b-158,w:172,h:136,t:'FIRE',c:'#ff4a3a'},
+      {k:'use',x:W-292,y:b-122,w:86,h:86,t:'USE',c:'#58c878'},{k:'next',x:W-110,y:b-240,w:84,h:72,t:'GUN',c:'#e8b83a'},
       {k:'msl',x:22,y:b-212,w:80,h:70,t:'MSL',c:'#ff8a2a',show:!!(p&&p.jet.tier>=2)},{k:'pause',x:W-60,y:94,w:44,h:44,t:'II',c:'#cfd6e6'});
   }
   const ks=btnK();
@@ -800,7 +800,7 @@ function drawControls(){
     if(b.k==='left'||b.k==='right'){ const d=b.k==='left'?-1:1, s=b.h*.2; ctx.beginPath(); ctx.moveTo(cx-d*s*.6,cy-s); ctx.lineTo(cx+d*s*.6,cy); ctx.lineTo(cx-d*s*.6,cy+s); ctx.stroke(); }
     else if(b.k==='jump'){ ctx.beginPath(); ctx.moveTo(cx-14,cy-2); ctx.lineTo(cx,cy-16); ctx.lineTo(cx+14,cy-2); ctx.stroke(); txt('JUMP',cx,cy+22,15,on?'#fff':'#dfe8f4',undefined,false); }
     else if(b.k==='use'){ txt('USE',cx,cy+8,22,on?'#fff':'#dff4e4',undefined,false); }
-    else if(b.k==='next'){ txt('GUN',cx,cy-2,20,on?'#fff':'#fff3cf',undefined,false); ctx.lineWidth=1; txt('› '+((p?p.gun+1:1)%10)+'  '+GUNS[p?p.gun:0].n.slice(0,6),cx,cy+20,11,'#e8d7a0',undefined,false); }
+    else if(b.k==='next'){ txt('GUN',cx,cy-2,20,on?'#fff':'#fff3cf',undefined,false); ctx.lineWidth=1; const gl='› '+((p?p.gun+1:1)%10)+' '+GUNS[p?p.gun:0].n.slice(0,6); txt(gl,cx,cy+20,Math.min(11,(b.w-8)/(.62*gl.length)),'#e8d7a0',undefined,false); }
     else if(b.k==='msl'){ ctx.lineWidth=1; ctx.fillStyle=on?'#fff':'#ffb070'; ctx.fillRect(cx-16,cy-16,26,8); ctx.beginPath(); ctx.moveTo(cx+10,cy-18); ctx.lineTo(cx+20,cy-12); ctx.lineTo(cx+10,cy-6); ctx.closePath(); ctx.fill(); txt('MSL  '+(p?p.jet.mis:0),cx,cy+20,15,on?'#fff':'#ffe0c0',undefined,false); }
     else if(b.k==='pause'){ ctx.lineWidth=6; ctx.beginPath(); ctx.moveTo(cx-6,cy-10); ctx.lineTo(cx-6,cy+10); ctx.moveTo(cx+6,cy-10); ctx.lineTo(cx+6,cy+10); ctx.stroke(); }
     ctx.lineCap='butt'; ctx.globalAlpha=1;
