@@ -30,3 +30,6 @@ A 2D pixel-art zombie shooter for the browser and iPhone. Hold the line through 
 | Pause / mute | P / M | pause button |
 
 This repository contains only the built, playable game (`index.html`, one self-contained file).
+
+## Audio
+Menu theme, four rotating battle loops (one per stage, cycling) and sampled gunshots, explosions, zombie groans and jetpack bursts live in `audio/`. They load on the first tap; the SOUND toggle / M key mutes everything. Serve the folder (or use the hosted link) so the files load.
