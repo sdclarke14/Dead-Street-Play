@@ -33,7 +33,7 @@
 <div id="rot"><div class="ph"></div><div class="t">ROTATE YOUR PHONE</div><div class="m" id="rotm"></div><div class="n" id="rotn"></div><button id="rotsw"></button></div>
 
 <script>
-const BUILD='1114-0103';
+const BUILD='1114-0107';
 let updateAvail=false;
 function checkUpdate(){ if(location.protocol==='file:') return; try{ fetch('version.txt?'+Date.now(),{cache:'no-store'}).then(r=>r.ok?r.text():'').then(t=>{ t=(t||'').trim(); if(t&&t!==BUILD) updateAvail=true; }).catch(()=>{}); }catch(e){} }
 function doUpdate(){ try{ fetch(location.pathname,{cache:'reload'}).catch(()=>{}).then(()=>location.reload()); }catch(e){ location.reload(); } }window.__ASSETS = {}; window.__PACKS = {"core": {"n": 229, "b": 2167620}, "m1": {"n": 63, "b": 1439344}, "m2": {"n": 61, "b": 1215788}, "m3": {"n": 62, "b": 1449074}, "m4": {"n": 61, "b": 1858060}, "m5": {"n": 51, "b": 1823075}, "m6": {"n": 61, "b": 1826689}, "m7": {"n": 61, "b": 1851303}, "o_astro": {"n": 20, "b": 385483}, "o_biker": {"n": 20, "b": 289831}, "o_cowboy": {"n": 20, "b": 360583}, "o_fire": {"n": 20, "b": 385335}, "o_knight": {"n": 20, "b": 370799}, "o_ninja": {"n": 20, "b": 320235}, "o_punk": {"n": 20, "b": 321547}, "o_samurai": {"n": 20, "b": 417367}, "o_sci": {"n": 20, "b": 313059}, "o_soldier": {"n": 20, "b": 348027}, "species": {"n": 72, "b": 1467225}}; window.__HERO = {"muz": [[42.8, -69.4], [52.1, -71.6], [46.3, -69.9], [52.1, -68.0], [58.0, -66.8], [59.5, -70.4], [52.1, -38.2], [49.3, -67.3], [44.8, -64.7], [52.6, -68.2], [52.1, -70.8], [52.5, -65.3], [57.5, -66.3], [58.5, -66.6], [56.9, -66.5], [60.3, -66.9], [56.3, -65.8], [54.9, -67.3], [46.7, -70.1], [35.6, -66.0], [45.4, -66.5], [56.9, -65.7], [53.1, -64.1], [58.1, -65.1], [59.2, -64.8], [53.2, -64.4], [55.1, -64.4], [47.9, -66.9]], "gun": [[12.6, 41.5, 24.7, -72.6, 32.8, -64.8, 22.1, -52.5, -69.2], [10.8, 50.9, 27.6, -74.2, 38.9, -68.6, 24.0, -53.3, -68.6], [13.8, 44.1, 26.5, -72.8, 35.0, -66.5, 23.8, -44.5, -68.9], [8.2, 51.2, 26.2, -68.8, 38.3, -62.0, 22.4, -57.7, -66.9], [3.9, 54.8, 25.3, -71.3, 39.5, -64.8, 20.7, -50.6, -65.8], [3.5, 56.9, 25.9, -82.3, 40.9, -65.7, 21.1, -59.2, -71.6], [0.7, 49.4, 21.2, -54.2, 34.8, -39.0, 16.8, -39.0, -41.6], [11.1, 45.9, 25.7, -62.9, 35.5, -59.8, 22.6, -53.1, -62.7], [1.7, 42.7, 18.9, -69.0, 30.4, -47.6, 15.2, -50.5, -61.7], [1.9, 50.3, 22.3, -71.9, 35.8, -59.9, 17.9, -54.7, -65.4], [12.2, 51.3, 28.6, -73.4, 39.6, -68.0, 25.1, -59.7, -69.3], [5.4, 50.3, 24.3, -70.1, 36.9, -62.0, 20.2, -47.1, -64.7], [7.4, 54.2, 27.1, -72.4, 40.2, -55.6, 22.9, -57.2, -66.3], [6.4, 56.3, 27.3, -69.9, 41.3, -60.2, 22.8, -46.5, -65.4], [6.2, 55.9, 27.0, -71.8, 41.0, -61.4, 22.6, -63.0, -65.8], [10.8, 59.9, 31.4, -59.0, 45.2, -52.5, 27.0, -54.4, -58.5], [4.8, 46.3, 22.2, -74.7, 33.8, -61.6, 18.5, -59.3, -70.6], [6.6, 53.1, 26.1, -76.4, 39.1, -62.3, 21.9, -48.8, -67.7], [7.1, 44.8, 22.9, -69.6, 33.5, -57.3, 19.5, -66.8, -68.4], [10.1, 33.7, 20.0, -69.3, 26.6, -63.8, 17.9, -42.3, -64.6], [6.1, 43.0, 21.6, -67.1, 32.0, -44.4, 18.3, -64.7, -65.4], [6.2, 42.5, 21.5, -80.7, 31.7, -58.0, 18.2, -59.5, -65.7], [5.5, 51.2, 24.7, -70.2, 37.5, -53.2, 20.6, -58.0, -65.2], [6.6, 57.1, 27.8, -68.1, 41.9, -60.5, 23.2, -49.1, -64.8], [7.9, 58.6, 29.2, -75.2, 43.4, -63.6, 24.6, -58.0, -64.4], [5.8, 52.0, 25.2, -76.4, 38.1, -59.9, 21.0, -67.4, -64.8], [8.0, 54.3, 27.5, -71.3, 40.4, -57.5, 23.3, -47.1, -64.8], [16.3, 46.0, 28.8, -63.9, 37.1, -59.3, 26.1, -61.9, -68.2]], "own": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], "ax": 0.4598, "hk": 1.0777, "mel": [[-34.1, -95.0, 29.7, -47.1], [-31.6, -95.0, 26.0, -45.9], [-36.6, -98.7, 35.9, -50.8], [-35.3, -101.2, 33.4, -49.6], [-31.6, -96.2, 27.3, -48.4]]}; window.__RIG = {"zslow": {"head": {"w": 84.5, "h": 93.0, "piv": [41.25, 84.5], "j": {}}, "torso": {"w": 64.0, "h": 72.0, "piv": [28.5, 54.75], "j": {"neck": [26.5, 11.0], "shF": [44.75, 21.5], "shB": [11.0, 22.25], "hipF": [27.25, 54.75], "hipB": [32.25, 54.75]}}, "uarmF": {"w": 45.75, "h": 51.0, "piv": [35.25, 8.5], "j": {"elbow": [9.0, 39.0]}}, "farmF": {"w": 62.0, "h": 28.5, "piv": [53.0, 7.25], "j": {}}, "uarmB": {"w": 41.0, "h": 51.0, "piv": [31.75, 9.0], "j": {"elbow": [5.5, 39.5]}}, "farmB": {"w": 63.75, "h": 31.5, "piv": [54.0, 7.25], "j": {}}, "thighF": {"w": 40.25, "h": 62.5, "piv": [26.5, 7.25], "j": {"knee": [14.75, 54.0]}}, "shinF": {"w": 37.25, "h": 55.25, "piv": [24.0, 7.25], "j": {}}, "thighB": {"w": 40.75, "h": 62.5, "piv": [26.75, 7.25], "j": {"knee": [15.0, 54.0]}}, "shinB": {"w": 36.75, "h": 55.25, "piv": [21.5, 7.25], "j": {}}, "_pre": "rg_zslow_"}, "zfast": {"head": {"w": 75.5, "h": 92.5, "piv": [36.75, 84.0], "j": {}}, "torso": {"w": 62.0, "h": 70.75, "piv": [27.5, 53.75], "j": {"neck": [25.75, 10.75], "shF": [43.25, 21.25], "shB": [10.75, 21.75], "hipF": [26.5, 53.75], "hipB": [31.25, 53.75]}}, "uarmF": {"w": 44.0, "h": 49.75, "piv": [34.75, 8.0], "j": {"elbow": [7.75, 41.75]}}, "farmF": {"w": 63.25, "h": 25.75, "piv": [55.0, 9.5], "j": {}}, "uarmB": {"w": 40.25, "h": 50.0, "piv": [31.0, 8.0], "j": {"elbow": [7.75, 42.0]}}, "farmB": {"w": 62.25, "h": 27.75, "piv": [54.25, 9.5], "j": {}}, "thighF": {"w": 39.0, "h": 60.75, "piv": [29.25, 8.5], "j": {"knee": [12.5, 50.0]}}, "shinF": {"w": 40.75, "h": 54.0, "piv": [28.75, 8.25], "j": {}}, "thighB": {"w": 38.5, "h": 60.75, "piv": [28.75, 8.5], "j": {"knee": [14.25, 50.0]}}, "shinB": {"w": 41.25, "h": 53.75, "piv": [28.5, 8.0], "j": {}}, "_pre": "rg_zfast_"}, "zspit": {"head": {"w": 91.5, "h": 91.25, "piv": [44.75, 83.0], "j": {}}, "torso": {"w": 79.5, "h": 84.5, "piv": [35.5, 64.25], "j": {"neck": [33.0, 12.75], "shF": [55.75, 25.25], "shB": [13.5, 26.0], "hipF": [33.75, 64.25], "hipB": [40.0, 64.25]}}, "uarmF": {"w": 43.0, "h": 51.25, "piv": [33.5, 8.0], "j": {"elbow": [7.75, 43.25]}}, "farmF": {"w": 66.75, "h": 32.5, "piv": [58.5, 10.25], "j": {}}, "uarmB": {"w": 39.5, "h": 50.25, "piv": [30.25, 8.0], "j": {"elbow": [7.5, 42.5]}}, "farmB": {"w": 66.5, "h": 32.25, "piv": [58.25, 9.75], "j": {}}, "thighF": {"w": 38.75, "h": 61.0, "piv": [28.75, 8.5], "j": {"knee": [12.0, 50.0]}}, "shinF": {"w": 42.75, "h": 54.25, "piv": [30.5, 8.5], "j": {}}, "thighB": {"w": 38.25, "h": 61.25, "piv": [28.25, 8.25], "j": {"knee": [14.0, 50.5]}}, "shinB": {"w": 43.0, "h": 55.25, "piv": [30.25, 8.5], "j": {}}, "_pre": "rg_zspit_"}, "vslow": {"head": {"w": 70.0, "h": 89.5, "piv": [34.25, 81.25], "j": {}}, "torso": {"w": 75.25, "h": 101.25, "piv": [33.5, 77.25], "j": {"neck": [31.25, 15.25], "shF": [52.75, 30.0], "shB": [12.75, 31.25], "hipF": [32.0, 77.25], "hipB": [38.0, 77.25]}}, "uarmF": {"w": 39.75, "h": 46.0, "piv": [31.75, 7.25], "j": {"elbow": [10.5, 35.75]}}, "farmF": {"w": 65.25, "h": 28.5, "piv": [58.0, 8.0], "j": {}}, "uarmB": {"w": 39.0, "h": 46.0, "piv": [31.0, 7.25], "j": {"elbow": [10.0, 35.75]}}, "farmB": {"w": 66.25, "h": 32.0, "piv": [59.0, 8.0], "j": {}}, "thighF": {"w": 36.75, "h": 63.75, "piv": [27.25, 7.75], "j": {"knee": [15.75, 55.25]}}, "shinF": {"w": 38.5, "h": 55.75, "piv": [26.75, 7.75], "j": {}}, "thighB": {"w": 37.0, "h": 64.0, "piv": [27.25, 8.25], "j": {"knee": [16.0, 55.5]}}, "shinB": {"w": 38.5, "h": 55.75, "piv": [26.75, 7.75], "j": {}}, "_pre": "m2_rg_vslow_"}, "vmage": {"head": {"w": 85.0, "h": 89.0, "piv": [41.5, 80.75], "j": {}}, "torso": {"w": 73.0, "h": 92.0, "piv": [32.5, 70.0], "j": {"neck": [30.25, 13.75], "shF": [51.0, 27.25], "shB": [12.5, 28.25], "hipF": [31.0, 70.0], "hipB": [36.75, 70.0]}}, "uarmF": {"w": 43.25, "h": 54.25, "piv": [35.25, 7.5], "j": {"elbow": [8.75, 44.25]}}, "farmF": {"w": 64.5, "h": 53.5, "piv": [51.5, 28.75], "j": {}}, "uarmB": {"w": 39.25, "h": 54.5, "piv": [30.5, 7.5], "j": {"elbow": [12.5, 45.0]}}, "farmB": {"w": 60.75, "h": 38.0, "piv": [51.5, 11.75], "j": {}}, "thighF": {"w": 38.25, "h": 61.0, "piv": [29.25, 7.75], "j": {"knee": [13.0, 50.75]}}, "shinF": {"w": 40.5, "h": 53.75, "piv": [24.5, 7.5], "j": {}}, "thighB": {"w": 38.0, "h": 61.0, "piv": [29.0, 7.75], "j": {"knee": [14.5, 50.25]}}, "shinB": {"w": 40.5, "h": 53.75, "piv": [24.5, 7.5], "j": {}}, "_pre": "m2_rg_vmage_"}, "witch": {"head": {"w": 107.5, "h": 96.75, "piv": [52.5, 88.0], "j": {}}, "torso": {"w": 63.0, "h": 77.25, "piv": [28.0, 58.75], "j": {"neck": [26.0, 11.75], "shF": [44.0, 23.0], "shB": [10.75, 23.75], "hipF": [26.75, 58.75], "hipB": [31.75, 58.75]}}, "uarmF": {"w": 41.0, "h": 48.25, "piv": [33.0, 7.5], "j": {"elbow": [8.0, 41.0]}}, "farmF": {"w": 70.75, "h": 31.25, "piv": [62.5, 9.25], "j": {}}, "uarmB": {"w": 37.75, "h": 48.25, "piv": [29.75, 7.5], "j": {"elbow": [8.0, 41.0]}}, "farmB": {"w": 66.75, "h": 30.5, "piv": [58.75, 8.75], "j": {}}, "thighF": {"w": 39.75, "h": 61.0, "piv": [30.5, 8.25], "j": {"knee": [12.75, 49.75]}}, "shinF": {"w": 38.75, "h": 52.25, "piv": [30.25, 7.25], "j": {}}, "thighB": {"w": 38.25, "h": 61.0, "piv": [29.0, 8.0], "j": {"knee": [13.25, 50.0]}}, "shinB": {"w": 39.0, "h": 52.75, "piv": [29.25, 7.25], "j": {}}, "_pre": "m3_rg_witch_"}, "wizard": {"head": {"w": 72.25, "h": 93.0, "piv": [35.25, 84.5], "j": {}}, "torso": {"w": 66.5, "h": 70.0, "piv": [29.5, 53.25], "j": {"neck": [27.5, 10.75], "shF": [46.5, 21.0], "shB": [11.5, 21.75], "hipF": [28.25, 53.25], "hipB": [33.5, 53.25]}}, "uarmF": {"w": 41.25, "h": 49.5, "piv": [32.25, 8.0], "j": {"elbow": [13.25, 33.5]}}, "farmF": {"w": 63.0, "h": 40.25, "piv": [54.5, 11.5], "j": {}}, "uarmB": {"w": 41.25, "h": 49.75, "piv": [32.25, 7.75], "j": {"elbow": [13.5, 33.5]}}, "farmB": {"w": 56.0, "h": 62.75, "piv": [28.25, 41.25], "j": {}}, "thighF": {"w": 40.25, "h": 60.25, "piv": [31.0, 8.25], "j": {"knee": [12.0, 48.75]}}, "shinF": {"w": 38.25, "h": 53.75, "piv": [27.5, 8.0], "j": {}}, "thighB": {"w": 38.25, "h": 60.0, "piv": [28.75, 8.25], "j": {"knee": [13.5, 49.0]}}, "shinB": {"w": 40.5, "h": 54.0, "piv": [28.0, 8.0], "j": {}}, "_pre": "m3_rg_wizard_"}, "rslow": {"head": {"w": 68.0, "h": 87.0, "piv": [33.25, 79.0], "j": {}}, "torso": {"w": 78.25, "h": 96.25, "piv": [34.75, 73.25], "j": {"neck": [32.25, 14.5], "shF": [54.75, 28.5], "shB": [13.25, 29.5], "hipF": [33.25, 73.25], "hipB": [39.5, 73.25]}}, "uarmF": {"w": 39.25, "h": 60.25, "piv": [30.25, 7.75], "j": {"elbow": [8.0, 52.5]}}, "farmF": {"w": 68.25, "h": 48.0, "piv": [60.5, 8.5], "j": {}}, "uarmB": {"w": 39.5, "h": 60.5, "piv": [30.75, 7.75], "j": {"elbow": [8.25, 52.5]}}, "farmB": {"w": 67.5, "h": 48.25, "piv": [59.75, 8.5], "j": {}}, "thighF": {"w": 42.0, "h": 63.0, "piv": [33.25, 7.75], "j": {"knee": [14.25, 51.75]}}, "shinF": {"w": 55.0, "h": 66.5, "piv": [41.25, 8.0], "j": {}}, "thighB": {"w": 40.25, "h": 63.0, "piv": [31.5, 7.75], "j": {"knee": [12.25, 50.5]}}, "shinB": {"w": 54.25, "h": 66.25, "piv": [39.5, 7.75], "j": {}}, "_pre": "m4_rg_rslow_"}, "rgun": {"head": {"w": 69.5, "h": 72.0, "piv": [34.0, 65.25], "j": {}}, "torso": {"w": 75.25, "h": 84.25, "piv": [33.5, 64.25], "j": {"neck": [31.25, 12.75], "shF": [52.75, 25.0], "shB": [12.75, 26.0], "hipF": [32.0, 64.25], "hipB": [38.0, 64.25]}}, "uarmF": {"w": 40.5, "h": 56.0, "piv": [21.0, 12.5], "j": {"elbow": [14.75, 48.75]}}, "farmF": {"w": 87.25, "h": 48.5, "piv": [70.0, 26.25], "j": {}}, "uarmB": {"w": 32.5, "h": 53.75, "piv": [16.25, 11.25], "j": {"elbow": [12.75, 46.25]}}, "farmB": {"w": 61.25, "h": 36.25, "piv": [53.75, 9.75], "j": {}}, "thighF": {"w": 40.75, "h": 62.25, "piv": [32.0, 7.25], "j": {"knee": [8.0, 54.25]}}, "shinF": {"w": 56.5, "h": 77.5, "piv": [45.25, 7.25], "j": {}}, "thighB": {"w": 39.75, "h": 62.25, "piv": [32.0, 7.0], "j": {"knee": [8.0, 54.25]}}, "shinB": {"w": 51.5, "h": 77.25, "piv": [43.0, 7.25], "j": {}}, "_pre": "m4_rg_rgun_"}, "raptor": {"head": {"w": 95.0, "h": 85.75, "piv": [46.25, 77.75], "j": {}}, "torso": {"w": 82.75, "h": 116.5, "piv": [36.75, 89.0], "j": {"neck": [34.25, 17.25], "shF": [58.0, 34.5], "shB": [14.0, 35.75], "hipF": [35.25, 89.0], "hipB": [41.75, 89.0]}}, "uarmF": {"w": 44.5, "h": 50.0, "piv": [35.5, 8.25], "j": {"elbow": [8.0, 42.25]}}, "farmF": {"w": 69.0, "h": 32.5, "piv": [60.75, 9.25], "j": {}}, "uarmB": {"w": 43.25, "h": 50.0, "piv": [33.75, 8.0], "j": {"elbow": [8.0, 42.0]}}, "farmB": {"w": 71.5, "h": 33.75, "piv": [63.25, 10.0], "j": {}}, "thighF": {"w": 43.75, "h": 60.75, "piv": [34.0, 8.5], "j": {"knee": [15.25, 49.0]}}, "shinF": {"w": 52.0, "h": 55.0, "piv": [38.5, 13.75], "j": {}}, "thighB": {"w": 43.75, "h": 60.75, "piv": [34.5, 8.75], "j": {"knee": [14.0, 49.0]}}, "shinB": {"w": 47.5, "h": 55.0, "piv": [35.0, 9.5], "j": {}}, "_pre": "m5_rg_raptor_"}, "mummy": {"head": {"w": 113.5, "h": 77.25, "piv": [55.5, 70.0], "j": {}}, "torso": {"w": 74.0, "h": 98.75, "piv": [33.0, 75.25], "j": {"neck": [30.5, 14.75], "shF": [51.75, 29.25], "shB": [12.5, 30.25], "hipF": [31.5, 75.25], "hipB": [37.25, 75.25]}}, "uarmF": {"w": 43.0, "h": 57.5, "piv": [34.25, 7.75], "j": {"elbow": [19.25, 43.0]}}, "farmF": {"w": 71.0, "h": 27.0, "piv": [62.75, 9.25], "j": {}}, "uarmB": {"w": 41.25, "h": 57.75, "piv": [32.5, 8.0], "j": {"elbow": [18.5, 42.75]}}, "farmB": {"w": 72.0, "h": 27.0, "piv": [63.75, 9.25], "j": {}}, "thighF": {"w": 41.0, "h": 64.5, "piv": [31.25, 8.25], "j": {"knee": [13.25, 54.75]}}, "shinF": {"w": 42.0, "h": 60.75, "piv": [29.0, 7.75], "j": {}}, "thighB": {"w": 39.75, "h": 64.5, "piv": [30.75, 7.5], "j": {"knee": [14.0, 54.5]}}, "shinB": {"w": 42.75, "h": 61.5, "piv": [29.25, 7.5], "j": {}}, "_pre": "m6_rg_mummy_"}, "anubis": {"head": {"w": 89.0, "h": 94.5, "piv": [43.5, 86.0], "j": {}}, "torso": {"w": 74.5, "h": 99.75, "piv": [33.25, 76.0], "j": {"neck": [30.75, 15.0], "shF": [52.25, 29.75], "shB": [12.75, 30.75], "hipF": [31.75, 76.0], "hipB": [37.5, 76.0]}}, "uarmF": {"w": 43.25, "h": 51.25, "piv": [34.75, 8.0], "j": {"elbow": [8.0, 43.25]}}, "farmF": {"w": 71.75, "h": 42.25, "piv": [63.0, 23.5], "j": {}}, "uarmB": {"w": 39.25, "h": 51.25, "piv": [30.5, 8.0], "j": {"elbow": [7.75, 43.5]}}, "farmB": {"w": 53.0, "h": 67.25, "piv": [14.0, 10.0], "j": {}}, "thighF": {"w": 43.25, "h": 62.75, "piv": [33.25, 8.5], "j": {"knee": [16.75, 53.0]}}, "shinF": {"w": 39.75, "h": 59.0, "piv": [29.75, 8.0], "j": {}}, "thighB": {"w": 39.75, "h": 63.0, "piv": [29.75, 8.75], "j": {"knee": [16.0, 52.75]}}, "shinB": {"w": 39.75, "h": 58.75, "piv": [30.0, 8.0], "j": {}}, "_pre": "m6_rg_anubis_"}, "astalk": {"head": {"w": 97.75, "h": 80.5, "piv": [47.75, 73.0], "j": {}}, "torso": {"w": 70.75, "h": 102.75, "piv": [31.5, 78.25], "j": {"neck": [29.25, 15.5], "shF": [49.5, 30.5], "shB": [12.0, 31.5], "hipF": [30.0, 78.25], "hipB": [35.75, 78.25]}}, "uarmF": {"w": 41.25, "h": 49.5, "piv": [33.5, 7.5], "j": {"elbow": [7.5, 42.0]}}, "farmF": {"w": 74.0, "h": 40.5, "piv": [66.5, 8.0], "j": {}}, "uarmB": {"w": 38.5, "h": 50.0, "piv": [30.5, 7.25], "j": {"elbow": [7.5, 42.5]}}, "farmB": {"w": 76.0, "h": 39.75, "piv": [68.5, 8.5], "j": {}}, "thighF": {"w": 41.5, "h": 67.75, "piv": [32.75, 7.5], "j": {"knee": [17.25, 59.0]}}, "shinF": {"w": 50.5, "h": 72.0, "piv": [40.25, 9.5], "j": {}}, "thighB": {"w": 39.5, "h": 68.0, "piv": [30.25, 7.75], "j": {"knee": [19.5, 59.5]}}, "shinB": {"w": 46.25, "h": 72.25, "piv": [33.75, 9.25], "j": {}}, "_pre": "m7_rg_astalk_"}, "aspit": {"head": {"w": 94.0, "h": 85.5, "piv": [46.0, 77.5], "j": {}}, "torso": {"w": 87.75, "h": 101.75, "piv": [39.0, 77.5], "j": {"neck": [36.25, 15.25], "shF": [61.5, 30.25], "shB": [14.75, 31.25], "hipF": [37.25, 77.5], "hipB": [44.25, 77.5]}}, "uarmF": {"w": 45.25, "h": 47.75, "piv": [36.25, 8.25], "j": {"elbow": [8.25, 39.25]}}, "farmF": {"w": 67.5, "h": 43.0, "piv": [59.25, 9.25], "j": {}}, "uarmB": {"w": 46.25, "h": 47.75, "piv": [37.5, 8.5], "j": {"elbow": [8.5, 39.25]}}, "farmB": {"w": 71.5, "h": 43.0, "piv": [63.0, 9.5], "j": {}}, "thighF": {"w": 44.25, "h": 68.0, "piv": [34.5, 8.5], "j": {"knee": [20.5, 58.5]}}, "shinF": {"w": 49.75, "h": 65.25, "piv": [37.5, 9.75], "j": {}}, "thighB": {"w": 43.25, "h": 67.75, "piv": [30.5, 9.5], "j": {"knee": [22.75, 58.25]}}, "shinB": {"w": 48.25, "h": 65.5, "piv": [32.0, 8.75], "j": {}}, "_pre": "m7_rg_aspit_"}};</script>
@@ -267,7 +267,7 @@ function startMusic(){
 }
 function musicTick(dt){
   if(!AC||AC.state!=='running'||!MUS.mg) return;
-  const menuMode=state==='layout'||state==='title'||state==='custom'||state==='shop'||state==='store'||state==='challenges'||state==='missions'||state==='loadout'||state==='win'||(state==='settings'&&settingsFrom!=='pause');
+  const menuMode=state==='layout'||state==='title'||state==='custom'||state==='shop'||state==='store'||state==='challenges'||state==='missions'||state==='loadout'||state==='stats'||state==='win'||(state==='settings'&&settingsFrom!=='pause');
   const want=menuMode?'menu':'b'+(((stage-1)%4)+4)%4;
   if(want!==MUS.want){ MUS.want=want; switchMusic(want); }
   startMusic();
@@ -581,14 +581,23 @@ function calcEff(i,list){
 function eff(i){ return EFF[i]||(EFF[i]=calcEff(i,fittedList(i,armEq(i)))); }
 function effPrev(i,pend){ const k=i+'|'+pend.slot+'|'+(pend.id||''); return PREV[k]||(PREV[k]=calcEff(i,fittedList(i,armEq(i),pend))); }
 function invalidate(){ EFF=[]; PREV={}; if(typeof ammo!=='undefined') for(let i=0;i<NG;i++){ const m=eff(i).max; if(ammo[i]!==Infinity&&ammo[i]>m) ammo[i]=m; } }
-const mxA=i=>eff(i).max;
+const mxA=i=>{ const m=eff(i).max; return m===Infinity?m:Math.round(m*(1+.03*evCnt().ammo)); };
 const hsOf=i=>{ const o=window.__HERO&&window.__HERO.own; return (o&&o.includes(i))?i:(GUNS[i].hs==null?i:GUNS[i].hs); };
 // guns you bought stay yours: (re)grant them at the start of a run / after a checkpoint
 function armoryApply(fresh){ for(let i=10;i<NG;i++) if(prof.arm.guns.includes(i)){ if(!owned[i]){ owned[i]=true; ammo[i]=Math.max(ammo[i]||0,Math.ceil(mxA(i)*.5)); } else if(fresh) ammo[i]=Math.max(ammo[i]||0,Math.ceil(mxA(i)*.5)); } }
-const maxHP=()=>100+10*prof.upg.vit, dmgMul=()=>1+.06*prof.upg.pow, scavMul=()=>1+.1*prof.upg.scav, fuelMax=t=>FUEL[t]+(t>0?10*prof.upg.tank:0);
+/* ---------- EVOLVE (Train tab): an endless path of small permanent boosts paid in gold; every 10th step is an EVOLUTION paid in gems ---------- */
+const EVC=[{k:'hp',n:'LIFE',s:'HP',d:'+5 max life',col:'#ff6a7a'},{k:'dmg',n:'POWER',s:'DMG',d:'+2% damage',col:'#ffd24a'},{k:'arm',n:'ARMOR',s:'ARM',d:'-1% damage taken',col:'#9cd7ff'},{k:'ammo',n:'AMMO',s:'AMMO',d:'+3% max ammo',col:'#a0e07a'},{k:'luck',n:'LUCK',s:'LUCK',d:'+2% gold and loot',col:'#c08aff'}];
+const EVBIG={k:'big',n:'EVOLUTION',s:'EVO',d:'+15 life, +5% damage, 5 shield at the start of every stage',col:'#ffb020'};
+const evType=i=>i%10===0?EVBIG:EVC[(i-1)%5], evCost=i=>i%10===0?{gem:10+Math.floor(i/5)}:{gold:Math.round(120*Math.pow(1.045,i)/10)*10};
+let EVC_=null, EVN=-1; function evCnt(){ const n=(prof&&prof.ev)||0; if(EVN!==n){ EVN=n; EVC_={hp:0,dmg:0,arm:0,ammo:0,luck:0,big:0}; for(let i=1;i<=n;i++) EVC_[evType(i).k]++; } return EVC_; }
+function evBuy(){ const i=(prof.ev||0)+1, c=evCost(i), T=evType(i);
+  if(c.gem){ if((prof.gems||0)<c.gem){ uiSfx('deny'); flashMsg('NEED '+(c.gem-(prof.gems||0))+' MORE GEMS FOR THE EVOLUTION'); return; } prof.gems-=c.gem; }
+  else { if(prof.gold<c.gold){ uiSfx('deny'); flashMsg('NEED '+(c.gold-prof.gold)+' MORE GOLD'); return; } prof.gold-=c.gold; }
+  prof.ev=i; saveProfile(); uiSfx('buy'); flashMsg('STEP '+i+':  '+T.n+'  '+T.d.toUpperCase()); }
+const maxHP=()=>100+10*prof.upg.vit+5*evCnt().hp+15*evCnt().big, dmgMul=()=>(1+.06*prof.upg.pow)*(1+.02*evCnt().dmg+.05*evCnt().big), scavMul=()=>(1+.1*prof.upg.scav)*(1+.02*evCnt().luck), fuelMax=t=>FUEL[t]+(t>0?10*prof.upg.tank:0);
 let stageGain={xp:0,gold:0};
 function gainGold(n,x,y){ n=Math.max(1,Math.round(n)); prof.gold+=n; stageGain.gold+=n; track('gold',n); saveProfile(); if(x!=null&&typeof say==='function') say(x,y,'+'+n+' GOLD','#ffd24a'); }
-function gainXP(n){ prof.xp+=n; stageGain.xp+=n; let up=false; while(prof.xp>=xpNeed(prof.level)){ prof.xp-=xpNeed(prof.level); prof.level++; up=true; }
+function gainXP(n){ track('xp',n); prof.xp+=n; stageGain.xp+=n; let up=false; while(prof.xp>=xpNeed(prof.level)){ prof.xp-=xpNeed(prof.level); prof.level++; up=true; }
   if(up){ const got=[]; SLOTS.forEach(sl=>CAT[sl].forEach(it=>{ if(it.u[0]==='lvl'&&it.u[1]<=prof.level&&!prof.unlocked.includes(it.id)){ prof.unlocked.push(it.id); got.push(sl.toUpperCase()+': '+it.n); } }));
     if(typeof banner!=='undefined') banner={t:3.6,text:'LEVEL UP!  LV '+prof.level,sub:got.length?'Unlocked  '+got.slice(0,2).join('  /  ')+(got.length>2?'  +'+(got.length-2):''):'Keep going'}; if(typeof sfx==='function') sfx(700,.4,'triangle',.06,600); }
   saveProfile(); }
@@ -951,7 +960,7 @@ function advanceStage(){
 function startStage(s){
   stageGain={xp:0,gold:0}; boxN=0; boxCap=Math.random()<.5?2:3;
   genStage(s); p=p?Object.assign(p,{x:320,y:GROUND,ld:0,vx:0,vy:0,hp:maxHP(),slime:0,inv:1.2,shield:0,pk:{dmg:0,speed:0,rapid:0,iron:0,regen:0,infam:0,crit:0,magnet:0,storm:0,sky:0}}):newPlayer(320);
-  p.jet.fuel=fuelMax(p.jet.tier); p.jet.mis=MIS[p.jet.tier];
+  p.jet.fuel=fuelMax(p.jet.tier); p.jet.mis=MIS[p.jet.tier]; if(evCnt().big) p.shield=Math.max(p.shield||0,5*evCnt().big);
   takeSnap(); const L=locOf(s);
   banner=subOf(s)===0?{t:3,text:LOCS[L].n,sub:(s===1?'Mission '+M.id+'  -  ':'')+'Stage '+s+'  -  survive '+stageDur()+'s'}:{t:2.4,text:'STAGE '+s,sub:LOCS[L].n+'  -  survive '+stageDur()+'s'};
   state='play'; showViewHint();
@@ -1007,7 +1016,7 @@ function tryFire(){
   const g=eff(p.gun);
   if(p.cd>0) return;
   if(ammo[p.gun]<=0){ p.gun=bestOwned(); say(p.x,p.y-110,'OUT OF AMMO','#ff6a6a'); uiSfx('dry'); p.cd=.3; return; }
-  p.cd=g.rate*(p.pk.rapid>0?.5:1); if(ammo[p.gun]!==Infinity&&!(p.pk.infam>0)) ammo[p.gun]--; padKick();
+  track('shots',1); p.cd=g.rate*(p.pk.rapid>0?.5:1); if(ammo[p.gun]!==Infinity&&!(p.pk.infam>0)) ammo[p.gun]--; padKick();
   let tgL=null; if(LANE){ let bd=900; zs.forEach(z=>{ if(z.dead) return; const dx=(z.x-p.x)*p.facing; if(dx>10&&dx<bd&&Math.abs((z.ld||0)-(p.ld||0))<120){ bd=dx; tgL=z; } }); }   // bullets curve into the lane of the nearest enemy in front
   const mz=(window.__HERO&&window.__HERO.muz&&window.__HERO.muz[hsOf(p.gun)])||[28,-54], mzx=mz[0]*HS, mzy=mz[1]*HS;
   for(let i=0;i<g.pel;i++){
@@ -1180,7 +1189,7 @@ function hurtZ(z,dmg,dir,kb=40,nf,src){
   const zone=(src&&src.hy!=null)?zoneOf(z,src.hy):(src&&src.k==='m'?(Math.random()<.28?'head':'torso'):'torso');
   if(src&&!nf&&(src.k==='b'||src.k==='m')&&z.hp>0) zReact(z,zone,dir,dmg);
   if(z.hp<=0 && !z.dead){
-    z.dead=true; killFx(z,dir,zone,dmg,src); if(state==='play'&&!(src&&src.k==='x')){ const now=performance.now(); if(now-lastStop>220){ hitstop=Math.max(hitstop,zone==='head'?.06:.04); lastStop=now; } }   /* freeze for a couple of frames so the kill lands */ kills++; track('kills',1); gainXP(XPK[z.t]||4); if(src&&src.sky) say(z.x,z.y-ZT[z.t].h-14,'+'+((XPK[z.t]||4)+1)+' XP','#bfe0ff'); if(Math.random()<.2) coins.push({ld:z.ld,x:z.x,y:GROUND-16,v:Math.max(1,Math.round((1+Math.floor(stage/4)*.7)*(1+Math.random()))),got:false,ph:Math.random()*6,t:14}); burst(z.x,z.y-40+lo(z),ZT[z.t].col,12,220); burst(z.x,z.y-40+lo(z),'#7a1a1a',6,160);
+    z.dead=true; killFx(z,dir,zone,dmg,src); if(state==='play'&&!(src&&src.k==='x')){ const now=performance.now(); if(now-lastStop>220){ hitstop=Math.max(hitstop,zone==='head'?.06:.04); lastStop=now; } }   /* freeze for a couple of frames so the kill lands */ kills++; track('kills',1); trackKill(z,zone,src); gainXP(XPK[z.t]||4); if(src&&src.sky) say(z.x,z.y-ZT[z.t].h-14,'+'+((XPK[z.t]||4)+1)+' XP','#bfe0ff'); if(Math.random()<.2) coins.push({ld:z.ld,x:z.x,y:GROUND-16,v:Math.max(1,Math.round((1+Math.floor(stage/4)*.7)*(1+Math.random()))),got:false,ph:Math.random()*6,t:14}); burst(z.x,z.y-40+lo(z),ZT[z.t].col,12,220); burst(z.x,z.y-40+lo(z),'#7a1a1a',6,160);
     sfx(120,.18,'sawtooth',.05,-70);
     if(Math.random()<.14){ drops.push({ld:z.ld,x:z.x,y:GROUND,kind:Math.random()<.4?'med':'ammo',t:12}); }
   }
@@ -1222,7 +1231,7 @@ function nearestCont(){
   let b=null,bd=useR(); conts.forEach(c=>{ const d=Math.abs(c.x-p.x), base=c.y==null?GROUND:c.y; if(!c.done&&!(veh&&c.type==='house')&&d<bd&&Math.abs(base-p.y)<useRY()&&inLane(p,c,useRL())){bd=d;b=c;} }); return b;
 }
 const TPK={dmg:[20,'DOUBLE DAMAGE','#ff7a7a'],speed:[20,'SPEED BOOST','#ffe84a'],rapid:[20,'RAPID FIRE','#d0a8ff'],iron:[15,'IRON SKIN','#9ab0c8'],regen:[10,'REGEN','#7dff9a'],infam:[12,'UNLIMITED AMMO','#ffd24a'],crit:[20,'CRIT BOOST','#ff8ad0'],magnet:[25,'COIN MAGNET','#5aa0ff'],storm:[14,'THUNDER STORM','#bfe0ff'],sky:[12,'ORBITAL LASERS','#ff6a9a']}, PKCAP=180, SHCAP=150;
-function tempPerk(kind,x,y){
+function tempPerk(kind,x,y){ track('perks',1);
   const T=TPK[kind];
   if(T){ const had=Math.max(0,p.pk[kind]||0); p.pk[kind]=Math.min(PKCAP,had+T[0]); const tot=Math.ceil(p.pk[kind]);       // grabbing the same timed perk again ADDS its time on top of what is left
     say(x,y,T[1]+'  +'+T[0]+'s'+(had>0?'  ('+tot+'s)':'')+(kind==='iron'?'  -60% dmg':''),T[2]); if(kind==='storm'||kind==='sky'){ banner={t:2.4,text:kind==='storm'?'THUNDER STORM':'ORBITAL LASERS',sub:kind==='storm'?'Lightning strikes the horde from the sky':'Lasers from orbit burn everything near you'}; sfx(kind==='storm'?90:600,.5,kind==='storm'?'sawtooth':'sine',.08,kind==='storm'?-40:900); } }
@@ -1236,7 +1245,7 @@ function pickGun(excl){ const l=[]; for(let i=1;i<NG;i++){ if(owned[i]||(excl&&e
 function ownedAmmoGuns(){ const l=[]; for(let i=1;i<NG;i++) if(owned[i]) l.push(i); return l; }
 function giveAmmo(i,mult=1){ if(ammo[i]===Infinity) return; ammo[i]=Math.min(mxA(i),ammo[i]+Math.ceil(GUNS[i].pack*mult*scavMul())); }
 function search(){
-  const c=nearestCont(); if(!c) return;
+  const c=nearestCont(); if(!c) return; track('loot',1);
   if(c.type==='house'){ if(veh) return; enterHouse(c); return; }       // you can loot from a vehicle, but you cannot drive into a house
   c.done=true; lootedX.add(Math.round(c.x)); let kind=c.kind;
   { const g0={house:[6,14],car:[6,14],dumpster:[4,9],locker:[12,24],cache:[18,36]}[c.type]||[5,10], gv=(g0[0]+Math.random()*(g0[1]-g0[0]))*(1+.08*stage)*scavMul();
@@ -1393,7 +1402,7 @@ function openCrate(c){
   c.open=true; gainXP(8); let kind=c.kind;
   if(kind==='fuel'&&p.jet.tier<=0) kind=rollPerk();
   burst(c.x,c.cy,PK[kind].col,28,280,200); burst(c.x,c.cy,'#ffffff',8,200,0); sfx(660,.3,'triangle',.06,600);
-  if(kind==='mystery'){ giveVehicle(c); return; }
+  if(kind==='mystery'){ track('boxes',1); giveVehicle(c); return; }
   if(kind==='jet'){
     const t=Math.min(3,Math.max(c.jt||0,p.jet.tier+1)); const up=t>p.jet.tier; p.jet.tier=t; p.jet.fuel=fuelMax(t); p.jet.mis=MIS[t];
     banner={t:3.4,text:t===1?'JETPACK ACQUIRED':'JETPACK UPGRADED  Mk'+t,sub:t===1?'Hold JUMP in the air to fly  -  '+fuelMax(1)+'s of fuel':t===2?'Twin boosters + homing missiles (press F)':'Heavy frame  -  '+fuelMax(3)+'s fuel, '+MIS[3]+' missiles'};
@@ -1411,7 +1420,7 @@ function fireMissile(){
   const J=p.jet; if(J.tier<2||state!=='play'||p.mcd>0) return;
   if(J.mis<=0){ say(p.x,p.y-120,'NO MISSILES','#ff6a6a'); p.mcd=.5; return; }
   const n=J.tier>=3?2:1, dmg=13*(p.slime>0?.5:1)*(p.pk.dmg>0?2:1)*dmgMul();
-  for(let i=0;i<n&&J.mis>0;i++){ J.mis--; missiles.push({x:p.x-p.facing*14,y:p.y-74-i*8,vx:p.facing*170,vy:-230-i*70,t:0,life:3,dir:p.facing,dmg,tg:null}); }
+  for(let i=0;i<n&&J.mis>0;i++){ J.mis--; track('missiles',1); missiles.push({x:p.x-p.facing*14,y:p.y-74-i*8,vx:p.facing*170,vy:-230-i*70,t:0,life:3,dir:p.facing,dmg,tg:null}); }
   p.mcd=J.tier>=3?.35:.6; sfx(200,.3,'sawtooth',.05,300); shake=Math.max(shake,3);
 }
 function boomMissile(m){ m.dead=true; explode(m.x,m.y,{splash:130,dmg:m.dmg},m.dmg); }
@@ -1464,11 +1473,12 @@ function hurtP(dmg,src,soft){
   if(veh){ if(!god&&state==='play'&&veh.k!=='bullet'){ veh.hp-=dmg; veh.fl=.15; shake=Math.max(shake,4); sfx(110,.15,'sawtooth',.06,-30); burst(p.x,p.y-50,'#ffb040',4,140); if(veh.hp<=0) dismount(true); } return; }
   if(p.inv>0||god||state!=='play') return;
   if(p.pk.iron>0) dmg*=.4;
+  dmg*=Math.max(.6,1-.01*evCnt().arm);                                   // Evolve armor
   if(p.shield>0){ dmg=shieldTake(dmg,src); burst(p.x,p.y-50,'#5ef2ff',8,160,0); if(dmg<=0){ p.inv=.3; sfx(500,.1,'triangle',.05,-200); return; } }
   if(!soft) padRumble(170,.8,.45); p.hp-=dmg; p.inv=soft?.12:.45; p.flash=soft?.1:.2; shake=Math.max(shake,soft?2:6); sfx(90,.2,'sawtooth',.07,-40);
   if(!soft&&HRIG) p.hr={k:Math.floor(Math.random()*3),t:0,d:Math.sign(src-p.x)===p.facing?1:-1};
   if(!soft) p.vx+=Math.sign(p.x-src)*180; burst(p.x,p.y-50,'#b01818',soft?4:8,160);
-  if(p.hp<=0){ p.hp=0; state='dead'; deadT=0; sfx(60,.6,'sawtooth',.09,-30); }
+  if(p.hp<=0){ p.hp=0; state='dead'; deadT=0; track('deaths',1); recRun(); sfx(60,.6,'sawtooth',.09,-30); }
 }
 function updateObst(dt){
   p.wire=false;
@@ -1491,9 +1501,10 @@ function update(dt){
   if(MENU[state]||state==='win') return;
   if(wheelOpen&&state==='play') dt*=.18;                       // the loadout opens in slow motion
   if(state==='dead'){ deadT+=dt; if(deadT>1.8){ if(GA) endGauntlet(); else respawn(); } stepFx(dt); return; }
-  if(state==='clear'){ clearT-=dt; zs.forEach(z=>z.hp=-1); zs=[]; stepFx(dt); if(clearT<=0){ if(GA){ endGauntlet(); } else if(stage>=MAXSTAGE){ state='win'; delete prof.run; prof.mdone=prof.mdone||[]; if(!prof.mdone.includes(M.id)){ prof.mdone.push(M.id); const rw=300*M.id; prof.gold+=rw; stageGain.gold+=rw; } saveProfile(); } else { p.hp=100; startStage(stage+1); } } return; }
+  if(state==='clear'){ clearT-=dt; zs.forEach(z=>z.hp=-1); zs=[]; stepFx(dt); if(clearT<=0){ if(GA){ endGauntlet(); } else if(stage>=MAXSTAGE){ state='win'; delete prof.run; prof.mdone=prof.mdone||[]; track('missions',1); recRun(); if(!prof.mdone.includes(M.id)){ prof.mdone.push(M.id); const rw=300*M.id; prof.gold+=rw; stageGain.gold+=rw; } saveProfile(); } else { p.hp=100; startStage(stage+1); } } return; }
   if(room){ updateRoom(dt); return; }
-  stageT+=dt; if(viewHint){ viewHint.t-=dt; if(viewHint.t<=0) viewHint=null; }
+  stageT+=dt; if(state==='play'&&p){ track('time',dt); track('dist',Math.abs(p.vx)*dt/40); if(p.thrust) track('jet',dt); }
+  if(viewHint){ viewHint.t-=dt; if(viewHint.t<=0) viewHint=null; }
   // --- player
   const L=keys.left, R=keys.right; let mv=(R?1:0)-(L?1:0); if(joy&&joy.ax) mv=joy.ax; else if(!mv&&padAx) mv=padAx;
   if(veh&&VEH[veh.k].auto) mv=1; const jk=!(veh&&veh.k!=='bike')&&(keys.jump||(joy&&joy.jump));
@@ -2252,7 +2263,7 @@ function drawWorldLane(){                                 // everything sorted b
   drawCrates(); drawMissiles(); drawSlashes(); drawFx(); }
 function render(){
   ctx.setTransform(RES,0,0,RES,0,0); ctx.save(); ctx.clearRect(0,0,W,H); ctx.imageSmoothingEnabled=true; ctx.imageSmoothingQuality='high';
-  if(MENU[state]&&state!=='pause'){ mb=[]; const FH0=H; if(PORT){ ctx.translate(0,PADT); H=FH0-PADT-PADB; MOY=PADT; } else MOY=0; inset(()=>{ if(isHome(state)) drawHome(); else if(state==='layout') drawLayoutScreen(); else if(state==='missions') drawMissions(); else if(state==='loadout') drawLoadout(); else if(state==='settings') drawSettings(); else if(state==='pause'){ /* drawn over the game below */ } }); H=FH0; if(state!=='pause'){ ctx.restore(); return; } }
+  if(MENU[state]&&state!=='pause'){ mb=[]; const FH0=H; if(PORT){ ctx.translate(0,PADT); H=FH0-PADT-PADB; MOY=PADT; } else MOY=0; inset(()=>{ if(isHome(state)) drawHome(); else if(state==='layout') drawLayoutScreen(); else if(state==='missions') drawMissions(); else if(state==='loadout') drawLoadout(); else if(state==='stats') drawStats(); else if(state==='settings') drawSettings(); else if(state==='pause'){ /* drawn over the game below */ } }); H=FH0; if(state!=='pause'){ ctx.restore(); return; } }
   if(PORT){ ctx.fillStyle='#0b0d12'; ctx.fillRect(0,0,W,H); ctx.beginPath(); ctx.rect(0,VY,W,VH); ctx.clip(); ctx.translate(0,VY); ctx.scale(VS,VS); }
   if(shake>0) ctx.translate(rnd(-shake,shake),rnd(-shake,shake));
   if(room) drawRoom(); else {
@@ -2280,7 +2291,7 @@ function render(){
 }
 
 /* ---------- menus: layout choice, main menu, customize, upgrades ---------- */
-const MENU={layout:1,title:1,custom:1,shop:1,settings:1,pause:1,missions:1,store:1,challenges:1,loadout:1};
+const MENU={layout:1,title:1,custom:1,shop:1,settings:1,pause:1,missions:1,store:1,challenges:1,loadout:1,stats:1};
 let settingsFrom='title', homeArm=0;
 let mb=[], custTab=0, custPage=0, custMsg=null;
 function lethChip(x,y){ const i=lethSel(), L=LETH[i], n=lethHave(i);
@@ -2326,11 +2337,33 @@ function gemIcon(x,y,s){ ctx.save(); ctx.translate(x,y); ctx.fillStyle='#37d27a'
 function coinIcon(x,y,s){ ctx.save(); ctx.fillStyle='#ffd24a'; ctx.strokeStyle='#7a5a10'; ctx.lineWidth=Math.max(1.5,s*.09); ctx.beginPath(); ctx.arc(x,y,s*.46,0,7); ctx.fill(); ctx.stroke(); ctx.fillStyle='#fff3a0'; ctx.beginPath(); ctx.arc(x-s*.1,y-s*.1,s*.16,0,7); ctx.fill(); ctx.restore(); }
 /* challenges: daily tasks + milestones paying gems */
 const CHALS=[ {id:'d_kill',t:'Zombie Hunter',d:'Kill 60 enemies',kind:'kills',goal:60,gem:5,daily:1}, {id:'d_gold',t:'Gold Rush',d:'Collect 150 gold',kind:'gold',goal:150,gem:4,daily:1}, {id:'d_stage',t:'Street Cleaner',d:'Clear 2 stages',kind:'stages',goal:2,gem:6,daily:1}, {id:'d_house',t:'House Call',d:'Enter 3 buildings',kind:'houses',goal:3,gem:4,daily:1},
+  {id:'d_k150',t:'Horde Breaker',d:'Kill 150 enemies',kind:'kills',goal:150,gem:8,daily:1}, {id:'d_k300',t:'Massacre',d:'Kill 300 enemies',kind:'kills',goal:300,gem:12,daily:1},
+  {id:'d_h25',t:'Head Hunter',d:'25 kills with a head shot',kind:'head',goal:25,gem:6,daily:1}, {id:'d_h60',t:'Pop Goes the Head',d:'60 head-shot kills',kind:'head',goal:60,gem:10,daily:1},
+  {id:'d_m20',t:'Up Close',d:'20 melee kills',kind:'melee',goal:20,gem:6,daily:1}, {id:'d_m50',t:'Batter Up',d:'50 melee kills',kind:'melee',goal:50,gem:10,daily:1},
+  {id:'d_b30',t:'Demolition',d:'30 kills with explosions',kind:'boom',goal:30,gem:7,daily:1}, {id:'d_s20',t:'Storm Caller',d:'20 kills from storms or sky lasers',kind:'sky',goal:20,gem:7,daily:1},
+  {id:'d_v25',t:'Road Rage',d:'25 kills while riding a vehicle',kind:'vkill',goal:25,gem:8,daily:1}, {id:'d_veh2',t:'Joyride',d:'Ride 2 vehicles',kind:'vehicles',goal:2,gem:5,daily:1},
+  {id:'d_l5',t:'Grenadier',d:'Throw 5 lethals',kind:'lethals',goal:5,gem:5,daily:1}, {id:'d_l15',t:'Pin Puller',d:'Throw 15 lethals',kind:'lethals',goal:15,gem:9,daily:1},
+  {id:'d_hs6',t:'Home Invader',d:'Enter 6 buildings',kind:'houses',goal:6,gem:7,daily:1}, {id:'d_lt10',t:'Scavenger',d:'Search 10 containers',kind:'loot',goal:10,gem:5,daily:1},
+  {id:'d_lt25',t:'Treasure Hunter',d:'Search 25 containers',kind:'loot',goal:25,gem:9,daily:1}, {id:'d_p5',t:'Power Up',d:'Grab 5 perks',kind:'perks',goal:5,gem:5,daily:1},
+  {id:'d_p12',t:'Perk Junkie',d:'Grab 12 perks',kind:'perks',goal:12,gem:8,daily:1}, {id:'d_st5',t:'Marathon',d:'Clear 5 stages',kind:'stages',goal:5,gem:10,daily:1},
+  {id:'d_st8',t:'No Rest',d:'Clear 8 stages',kind:'stages',goal:8,gem:14,daily:1}, {id:'d_g500',t:'Big Earner',d:'Collect 500 gold',kind:'gold',goal:500,gem:7,daily:1},
+  {id:'d_g1500',t:'Bank Job',d:'Collect 1,500 gold',kind:'gold',goal:1500,gem:12,daily:1}, {id:'d_sh',t:'Trigger Happy',d:'Fire 1,000 shots',kind:'shots',goal:1000,gem:5,daily:1},
+  {id:'d_ms',t:'Missile Rain',d:'Fire 20 jetpack missiles',kind:'missiles',goal:20,gem:6,daily:1}, {id:'d_jet',t:'Frequent Flyer',d:'Fly the jetpack for 60 seconds',kind:'jet',goal:60,gem:6,daily:1},
+  {id:'d_xp',t:'Quick Study',d:'Earn 500 XP',kind:'xp',goal:500,gem:6,daily:1}, {id:'d_mis',t:'Mission Complete',d:'Clear a whole mission',kind:'missions',goal:1,gem:20,daily:1},
+  {id:'d_dist',t:'Long Walk',d:'Travel 2,000 metres',kind:'dist',goal:2000,gem:5,daily:1}, {id:'d_box',t:'Lucky Box',d:'Open 2 mystery boxes',kind:'boxes',goal:2,gem:6,daily:1},
+  {id:'d_time',t:'Dedicated',d:'Play for 20 minutes',kind:'time',goal:1200,gem:6,daily:1}, {id:'d_vamp',t:'Bloodsucker Bane',d:'Kill 80 enemies in Blood Moon',kind:'k_vampire',goal:80,gem:8,daily:1},
+  {id:'d_wit',t:'Witch Hunt',d:'Kill 80 enemies in Witching Hour',kind:'k_witch',goal:80,gem:8,daily:1}, {id:'d_rob',t:'Scrap Metal',d:'Kill 80 robots in Steel Rain',kind:'k_robot',goal:80,gem:8,daily:1},
+  {id:'d_hive',t:'Alien Exterminator',d:'Kill 80 aliens in the Hive',kind:'k_hive',goal:80,gem:8,daily:1},
   {id:'l_kill',t:'Slayer',d:'Kill 1,000 enemies in total',kind:'lkills',goal:1000,gem:40}, {id:'l_lv',t:'Veteran',d:'Reach level 10',kind:'level',goal:10,gem:30}, {id:'l_m1',t:'Street Saviour',d:'Clear Mission 1',kind:'m1',goal:1,gem:50}, {id:'l_parts',t:'Gearhead',d:'Own 10 attachments',kind:'parts',goal:10,gem:25}, {id:'l_guns',t:'Arsenal',d:'Buy 3 black-market guns',kind:'guns',goal:3,gem:35} ];
-function chalRoll(){ const d=new Date().toISOString().slice(0,10), c=prof.chal||(prof.chal={}); c.claimed=c.claimed||{}; if(c.d!==d||!c.day){ c.d=d; c.day={kills:0,gold:0,stages:0,houses:0}; CHALS.filter(x=>x.daily).forEach(x=>{ delete c.claimed[x.id]; }); } c.lkills=c.lkills||0; return c; }
-function track(kind,n){ const c=chalRoll(); if(c.day[kind]!=null) c.day[kind]+=n; if(kind==='kills') c.lkills+=n; }
-const chalProg=x=>{ const c=chalRoll(); return x.kind==='lkills'?c.lkills:x.kind==='level'?prof.level:x.kind==='m1'?((prof.mdone||[]).includes(1)?1:0):x.kind==='parts'?prof.arm.buy.length:x.kind==='guns'?prof.arm.guns.length:c.day[x.kind]; };
-const chalClaimable=()=>CHALS.filter(x=>!chalRoll().claimed[x.id]&&chalProg(x)>=x.goal).length;
+function chalRoll(){ const d=new Date().toISOString().slice(0,10), c=prof.chal||(prof.chal={}); c.claimed=c.claimed||{}; if(c.d!==d||!c.day){ c.d=d; c.day={}; CHALS.filter(x=>x.daily).forEach(x=>{ delete c.claimed[x.id]; }); } c.lkills=c.lkills||0; return c; }
+// every event goes through here: today's count (daily challenges) and the lifetime count (STATS page). runK counts this run's kills for the records
+function track(kind,n){ const c=chalRoll(); c.day[kind]=(c.day[kind]||0)+n; if(kind==='kills') c.lkills+=n; const st=prof.st||(prof.st={}); st[kind]=(st[kind]||0)+n; }
+function trackKill(z,zone,src){ track('k_'+M.theme,1); track('kt_'+M.theme+'_'+z.t,1); if(zone==='head') track('head',1); if(veh) track('vkill',1); else if(src&&src.k==='m') track('melee',1); else if(src&&src.sky) track('sky',1); else if(src&&src.k==='x') track('boom',1); }
+function recRun(){ if(GA) return; const r=prof.rec||(prof.rec={}); r.kills=Math.max(r.kills||0,kills); r.stage=Math.max(r.stage||0,stage); const k='m'+M.id; r[k]=Math.max(r[k]||0,stage); r.runs=(r.runs||0)+1; saveProfile(); }
+// today's dailies: 5 picked from the pool by the date, so everyone gets the same five and they change at midnight UTC
+function dailyToday(){ const d=chalRoll().d, pool=CHALS.filter(x=>x.daily); let h=0; for(const ch of d) h=(h*31+ch.charCodeAt(0))>>>0; const out=[], used=new Set(); while(out.length<Math.min(5,pool.length)){ h=(h*1103515245+12345)>>>0; const k=h%pool.length; if(!used.has(k)){ used.add(k); out.push(pool[k]); } } return out; }
+const chalProg=x=>{ const c=chalRoll(); return x.kind==='lkills'?c.lkills:x.kind==='level'?prof.level:x.kind==='m1'?((prof.mdone||[]).includes(1)?1:0):x.kind==='parts'?prof.arm.buy.length:x.kind==='guns'?prof.arm.guns.length:x.kind==='jet'||x.kind==='time'||x.kind==='dist'?Math.floor(c.day[x.kind]||0):(c.day[x.kind]||0); };
+const chalClaimable=()=>[...dailyToday(),...CHALS.filter(x=>!x.daily)].filter(x=>!chalRoll().claimed[x.id]&&chalProg(x)>=x.goal).length;
 function claimChal(x){ const c=chalRoll(); if(c.claimed[x.id]||chalProg(x)<x.goal){ uiSfx('deny'); return; } c.claimed[x.id]=1; prof.gems=(prof.gems||0)+x.gem; saveProfile(); uiSfx('buy'); flashMsg('+'+x.gem+' GEMS  -  '+x.t.toUpperCase()); }
 /* tab icons (drawn, no image files) */
 function tabIcon(i,cx,cy,s,on){ ctx.save(); ctx.translate(cx,cy); ctx.lineWidth=Math.max(2,s*.07); ctx.strokeStyle='#0b0d12'; ctx.lineJoin='round'; ctx.lineCap='round'; const R=(x,y,w,h,f,r)=>{ ctx.fillStyle=f; rrx(x,y,w,h,r||2); ctx.fill(); ctx.stroke(); };
@@ -2411,6 +2444,11 @@ function mergeGun(i){ const g=gl(i), need=gNeed(i); if(!gunHave(i)){ uiSfx('deny
   if(g.c<need){ uiSfx('deny'); flashMsg('NEED '+(need-g.c)+' MORE '+GUNS[i].n+' CARDS'); return; } g.c-=need; g.t++; saveProfile(); invalidate(); uiSfx('equip'); flashMsg('MERGED!  '+GUNS[i].n+' IS NOW '+RAR[g.t]); }
 function addCard(i,n){ gl(i).c+=n||1; saveProfile(); cardQ.push({i,n:n||1,play:state==='play'}); }
 function rollCard(){ let tot=0; const w=GUNS.map((_,i)=>{ const x=i<10?3:1; tot+=x; return x; }); let r=Math.random()*tot; for(let i=0;i<w.length;i++){ r-=w[i]; if(r<=0) return i; } return 0; }
+// supply boxes: the gem sink - cards, a gun part you don't own yet (they cost a lot of gold now) and gold, all in one box
+function buySupply(big){ const cost=big?120:30; if(prof.gems<cost){ uiSfx('deny'); flashMsg('NEED '+(cost-prof.gems)+' MORE GEMS - EARN THEM IN CHALLENGES'); return; } prof.gems-=cost;
+  for(let k=0;k<(big?10:3);k++) addCard(rollCard(),1); const pool=ATT.filter(a=>!prof.arm.buy.includes(a.id)&&a.fit), got=[];
+  for(let k=0;k<(big?3:1)&&pool.length;k++){ const a=pool.splice((Math.random()*pool.length)|0,1)[0]; prof.arm.buy.push(a.id); got.push(a.n); } const gd=big?2000:300+((Math.random()*301)|0); prof.gold+=gd;
+  saveProfile(); uiSfx('buy'); flashMsg((big?'ELITE BOX':'SUPPLY BOX')+':  '+(big?10:3)+' CARDS'+(got.length?'  +  '+got.join(', '):'')+'  +  '+gd+' GOLD'); }
 function buyCrate(n){ const cost=n===5?90:20; if(prof.gems<cost){ uiSfx('deny'); flashMsg('NEED '+(cost-prof.gems)+' MORE GEMS - EARN THEM IN CHALLENGES'); return; } prof.gems-=cost; const got=[]; for(let k=0;k<n;k++){ const i=rollCard(); addCard(i,1); got.push(GUNS[i].n); } uiSfx('buy'); flashMsg('CARDS:  '+got.join('  ')); }
 function drawGear(){
   menuBG(.93); if(custSub===1) drawCustom(); else if(custSub===2) drawSpecies(); else if(custSub===3) drawMeleeTab(); else drawGunsTab();
@@ -2489,7 +2527,9 @@ function drawBattle(){
 function drawStore(){ menuBG(.92); const P=PORT?16:24, gap=8, cw=Math.floor((W-2*P-gap)/2), chh=PORT?96:78, sc=NSC.store||0, pd=bs.pend, pendOn=pd&&(pd.kind==='gun'||pd.kind==='cos'); let y=12-sc;
   const sec=t=>{ txt(t,P,y+14,13,'#9a9f7a','left',false); y+=26; };
   sec('SUPPLY CRATES  -  gems buy random gun cards (merge them in GEAR)');
-  [[1,20],[5,90]].forEach(([n,c],q)=>{ const x=P+q*(cw+gap), can=prof.gems>=c; mbtn(x,y,cw,58,'',()=>buyCrate(n),{fill:'#142018',stroke:can?'#37d27a':'#3a4258'}); gemIcon(x+cw-70,y+29,18); txt(String(c),x+cw-52,y+35,17,can?'#7dffb0':'#ff9a8a','left',false); txt(n===1?'GUN CARD':n+' GUN CARDS',x+14,y+26,PORT?16:15,'#ffe08a','left',false); txt(n===1?'random gun':'best value',x+14,y+44,11,'#9a9f7a','left',false); }); y+=58+gap+10;
+  [[1,20],[5,90]].forEach(([n,c],q)=>{ const x=P+q*(cw+gap), can=prof.gems>=c; mbtn(x,y,cw,58,'',()=>buyCrate(n),{fill:'#142018',stroke:can?'#37d27a':'#3a4258'}); gemIcon(x+cw-70,y+29,18); txt(String(c),x+cw-52,y+35,17,can?'#7dffb0':'#ff9a8a','left',false); txt(n===1?'GUN CARD':n+' GUN CARDS',x+14,y+26,PORT?16:15,'#ffe08a','left',false); txt(n===1?'random gun':'best value',x+14,y+44,11,'#9a9f7a','left',false); }); y+=58+gap;
+  [[0,30],[1,120]].forEach(([big,c],q)=>{ const x=P+q*(cw+gap), can=prof.gems>=c; mbtn(x,y,cw,58,'',()=>buySupply(big),{fill:'#1a1830',stroke:can?'#b08aff':'#3a4258'}); gemIcon(x+cw-70,y+29,18); txt(String(c),x+cw-52,y+35,17,can?'#7dffb0':'#ff9a8a','left',false);
+    txt(big?'ELITE SUPPLY BOX':'SUPPLY BOX',x+14,y+26,PORT?16:15,'#d8c2ff','left',false); txt(big?'10 cards, 3 gun parts, 2,000 gold':'3 cards, 1 gun part, 300-600 gold',x+14,y+44,11,'#9a9f7a','left',false); }); y+=58+gap+10;
   sec('BLACK MARKET  -  guns, yours for every mission');
   for(let k=0;k<NG-10;k++){ const i=10+k, g=GUNS[i], own=prof.arm.guns.includes(i), x=P+(k%2)*(cw+gap), cy=y+((k/2)|0)*(chh+gap), can=prof.gold>=g.buy, sel=pd&&pd.kind==='gun'&&pd.i===i;
     mbtn(x,cy,cw,chh,'',()=>selectBuyGun(i),{fill:own?'#1c2230':'#141720'}); if(sel){ rrx(x+1,cy+1,cw-2,chh-2,12); ctx.strokeStyle='#ffd24a'; ctx.lineWidth=3.5; ctx.stroke(); }
@@ -2506,6 +2546,7 @@ function drawStore(){ menuBG(.92); const P=PORT?16:24, gap=8, cw=Math.floor((W-2
   if(pendOn) drawConfirm(P,H-(PORT?108:70),W-2*P,PORT?100:62); }
 /* CHALLENGES: daily tasks + milestones pay gems; the Gauntlet (4 chapters x 6 stages) is next */
 function drawChallenges(){ menuBG(.92); const P=PORT?16:24, rh=PORT?84:70, sc=NSC.challenges||0; let y=12-sc; chalRoll();
+  mbtn(P,y,W-2*P,46,'',()=>{ state='stats'; uiSfx('click'); },{fill:'#1f2a44',stroke:'#7aa0e0'}); txt('STATS & RECORDS',P+18,y+21,PORT?17:18,'#cfe0ff','left'); txt(rankOf(prof.level)+'  -  '+((prof.st&&prof.st.kills)||0)+' kills counted  -  tap to open',P+18,y+38,11,'#9aa8c8','left',false); txt('>',W-P-20,y+30,22,'#cfe0ff'); y+=58;
   const sec=(t,sub)=>{ txt(t,P,y+14,13,'#9a9f7a','left',false); if(sub) txt(sub,W-P,y+14,12,'#6a738c','right',false); y+=26; };
   const nx=gNext(); sec('GAUNTLET  -  4 chapters x 6 quick stages',nx>=24?'ALL CLEARED':(nx+1)+' / 24 next');
   const cw4=Math.floor((W-2*P-3*8)/4), chH=PORT?84:70; GCH.forEach((c,k)=>{ const x=P+k*(cw4+8), open=gOpen(k*6), sel=gsCh===k, dn=[0,1,2,3,4,5].filter(q=>gDone(k*6+q)).length;
@@ -2523,7 +2564,7 @@ function drawChallenges(){ menuBG(.92); const P=PORT?16:24, rh=PORT?84:70, sc=NS
       txt(x.t,P+14,cy+24,PORT?17:16,claimed?'#7a8a80':'#ffe08a','left',false); txt(x.d,P+14,cy+(PORT?44:42),PORT?13:12,'#cfd6e6','left',false); const bw=Math.min(W*.4,260); ctx.fillStyle='#0b0d12'; ctx.fillRect(P+14,cy+rh-24,bw,8); ctx.fillStyle=done?'#8fd13a':'#4a8aff'; ctx.fillRect(P+14,cy+rh-24,bw*pr/x.goal,8); txt(pr+' / '+x.goal,P+14+bw+10,cy+rh-16,11,'#9aa4bd','left',false);
       gemIcon(W-P-(PORT?150:170),cy+24,16); txt(String(x.gem),W-P-(PORT?138:158),cy+30,16,'#7dffb0','left',false);
       mbtn(W-P-(PORT?118:128),cy+rh/2-20,PORT?106:116,38,claimed?'CLAIMED':done?'CLAIM':'IN PROGRESS',()=>claimChal(x),{dis:!done||claimed,size:PORT?14:14,fill:done&&!claimed?'#2e5a22':'#262d40',stroke:done&&!claimed?'#9aea7a':'#555'}); y+=rh; }); y+=8; };
-  list('DAILY  -  resets every day',CHALS.filter(x=>x.daily)); list('MILESTONES',CHALS.filter(x=>!x.daily));
+  list('DAILY  -  five new ones every day',dailyToday()); list('MILESTONES',CHALS.filter(x=>!x.daily));
   y+=24; NSCM.challenges=Math.max(0,y+sc-H); if(custMsg&&performance.now()<custMsg.until) txt(custMsg.t,W/2,H-14,15,'#ffd24a'); }
 
 /* ---------- LOADOUT: before every mission you pick up to 5 guns from the ones you have; the pistol always comes along as the sidearm.
@@ -2538,13 +2579,14 @@ function drawLoadout(){ if(!loPick){ state='missions'; return; } const m=MISSION
   txt('MISSION '+m.id+'  -  '+m.n,cx,PORT?40:34,PORT?26:26,m.col); txt('LOADOUT  -  pick up to '+LOMAX+' guns. The pistol always comes along. Guns you find on the street join you for the run.',cx,PORT?62:56,PORT?11:13,'#cfd6e6',undefined,false);
   // the slots: sidearm + 5
   const n=LOMAX+1, sg=PORT?6:10, sw=Math.min(PORT?999:170,(W-2*P-sg*(n-1))/n), sh=PORT?74:82, sx0=cx-(n*sw+(n-1)*sg)/2, sy=PORT?78:72;
+  rrx(sx0-8,sy-8,n*sw+(n-1)*sg+16,sh+16,16); ctx.fillStyle='rgba(255,190,60,.10)'; ctx.fill(); ctx.strokeStyle='rgba(255,200,80,.55)'; ctx.lineWidth=2; ctx.stroke();   // the loadout tray stands apart from the gun list: warm gold
   for(let k=0;k<n;k++){ const x=sx0+k*(sw+sg), gi=k===0?0:l[k-1];
-    if(k===0){ mbtn(x,sy,sw,sh,'',()=>{ uiSfx('deny'); flashMsg('THE PISTOL IS ALWAYS CARRIED'); },{fill:'#161b26',stroke:'#4a5266'}); txt('SIDEARM',x+sw/2,sy+14,10,'#7a8090',undefined,false); }
-    else if(gi!=null){ mbtn(x,sy,sw,sh,'',()=>loToggle(gi),{fill:'#1d2a1a',stroke:'#8fd13a'}); txt('SLOT '+k+'  x',x+sw/2,sy+14,10,'#9aea7a',undefined,false); }
-    else { mbtn(x,sy,sw,sh,'',()=>{ uiSfx('click'); flashMsg('TAP A GUN BELOW TO ADD IT'); },{fill:'#12151d',stroke:'#3a4258'}); txt('SLOT '+k,x+sw/2,sy+14,10,'#566078',undefined,false); txt('EMPTY',x+sw/2,sy+sh/2+8,PORT?12:14,'#566078',undefined,false); continue; }
+    if(k===0){ mbtn(x,sy,sw,sh,'',()=>{ uiSfx('deny'); flashMsg('THE PISTOL IS ALWAYS CARRIED'); },{fill:'#2a2312',stroke:'#a8873a'}); txt('SIDEARM',x+sw/2,sy+14,10,'#c8a860',undefined,false); }
+    else if(gi!=null){ mbtn(x,sy,sw,sh,'',()=>loToggle(gi),{fill:'#3a2c10',stroke:'#ffc24a'}); txt('SLOT '+k+'  x',x+sw/2,sy+14,10,'#ffd88a',undefined,false); }
+    else { mbtn(x,sy,sw,sh,'',()=>{ uiSfx('click'); flashMsg('TAP A GUN BELOW TO ADD IT'); },{fill:'#1e1a10',stroke:'#6a5a30'}); txt('SLOT '+k,x+sw/2,sy+14,10,'#566078',undefined,false); txt('EMPTY',x+sw/2,sy+sh/2+8,PORT?12:14,'#566078',undefined,false); continue; }
     drawGunCrop(gi,x+6,sy+20,sw-12,sh-40); txt(GUNS[gi].n,x+sw/2,sy+sh-8,PORT?10:12,'#fff',undefined,false); }
   // every gun you have
-  const all=loGuns(), cols=PORT?4:9, gg=8, top=sy+sh+(PORT?14:16), bot=H-(PORT?70:66), rows=Math.max(1,Math.ceil(all.length/cols)), cw=(W-2*P-gg*(cols-1))/cols, ch=Math.min(PORT?78:74,(bot-top-gg*(rows-1))/rows);
+  const all=loGuns(), cols=PORT?4:9, gg=8, top=sy+sh+(PORT?14:16), bot=H-(PORT?70:66), rows=Math.max(1,Math.ceil(all.length/cols)), cw=(W-2*P-gg*(cols-1))/cols, ch=Math.min(PORT?96:112,(bot-top-gg*(rows-1))/rows);
   all.forEach((i,k)=>{ const x=P+(k%cols)*(cw+gg), y=top+((k/cols)|0)*(ch+gg), on=l.includes(i);
     mbtn(x,y,cw,ch,'',()=>loToggle(i),{fill:on?'#1d2a1a':'#1c2230',stroke:on?'#8fd13a':'#3a4258'}); if(on){ rrx(x+1,y+1,cw-2,ch-2,12); ctx.strokeStyle='#8fd13a'; ctx.lineWidth=3; ctx.stroke(); }
     drawGunCrop(i,x+5,y+5,cw-10,ch*.55); txt(GUNS[i].n,x+cw/2,y+ch-(PORT?18:16),PORT?10:11,on?'#e8ffd0':'#cfd6e6',undefined,false);
@@ -2556,6 +2598,22 @@ function drawLoadout(){ if(!loPick){ state='missions'; return; } const m=MISSION
   if(loPick.cont&&best>1){ mbtn(W-P-bw,by,bw,bh,'CONTINUE  S'+best,go(true),{size:PORT?15:18,fill:'#2a3a5a',stroke:'#7aa0e0'}); mbtn(W-P-2*bw-12,by,bw,bh,'NEW RUN',go(false),{size:PORT?15:18,fill:'#2e5a22',stroke:'#9aea7a'}); }
   else mbtn(W-P-bw,by,bw,bh,'START  ('+l.length+' / '+LOMAX+')',go(false),{size:PORT?15:18,fill:'#2e5a22',stroke:'#9aea7a'});
   if(custMsg&&performance.now()<custMsg.until) txt(custMsg.t,cx,by-10,14,'#ffd24a'); }
+/* ---------- STATS & RECORDS: lifetime counts from track() plus best runs. Personal for now (no server yet); global rankings would need an online leaderboard ---------- */
+const RANKS=[[0,'ROOKIE'],[5,'SURVIVOR'],[15,'VETERAN'],[30,'ELITE'],[50,'COMMANDER'],[75,'LEGEND'],[100,'UNDYING']];
+const rankOf=l=>{ let r=RANKS[0][1]; RANKS.forEach(([n,t])=>{ if(l>=n) r=t; }); return r; };
+function drawStats(){ menuBG(.94); const S=prof.st||{}, R_=prof.rec||{}, c=chalRoll(), P=PORT?14:28, cx=W/2, f=n=>{ n=Math.floor(n||0); return n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e4?(n/1e3).toFixed(1)+'K':n.toLocaleString('en-US'); };
+  const tm=S.time||0, hrs=Math.floor(tm/3600), mins=Math.floor(tm/60)%60;
+  outlined(rankOf(prof.level),cx,PORT?40:40,PORT?30:34,'#ffe08a','#0b0d12',6); txt('LEVEL '+prof.level+'  -  '+f(c.lkills)+' kills all-time',cx,PORT?62:62,PORT?12:14,'#cfd6e6',undefined,false);
+  const T=[
+    ['COMBAT','#ff8a6a',[['Kills (all time)',f(c.lkills)],['Head-shot kills',f(S.head)],['Melee kills',f(S.melee)],['Explosion kills',f(S.boom)],['Storm & laser kills',f(S.sky)],['Kills on vehicles',f(S.vkill)],['Shots fired',f(S.shots)],['Lethals thrown',f(S.lethals)],['Jetpack missiles',f(S.missiles)]]],
+    ['RUNS','#7aa0e0',[['Runs finished',f(R_.runs)],['Deaths',f(S.deaths)],['Missions cleared',f(S.missions)],['Stages cleared',f(S.stages)],['Most kills in a run',f(R_.kills)],['Furthest stage',f(R_.stage)],['Time played',hrs+'h '+mins+'m'],['Distance',((S.dist||0)/1000).toFixed(1)+' km'],['Jetpack time',f((S.jet||0)/60)+' min']]],
+    ['LOOT','#ffd24a',[['Gold collected',f(S.gold)],['XP earned',f(S.xp)],['Containers searched',f(S.loot)],['Buildings entered',f(S.houses)],['Perks grabbed',f(S.perks)],['Mystery boxes',f(S.boxes)],['Vehicles ridden',f(S.vehicles)],['Evolve steps',f(prof.ev)],['Gems on hand',f(prof.gems)]]],
+    ['WORLDS  -  kills / best stage','#8fd13a',MISSIONS.filter(m=>!m.soon).map(m=>[m.n,f(S['k_'+m.theme])+' / S'+bestOf(m.id)])]];
+  const cols=PORT?2:4, gap=PORT?8:12, cw=(W-2*P-gap*(cols-1))/cols, top=PORT?78:80, lh=PORT?15:19, rows=Math.ceil(T.length/cols), bh=(PORT?H-top-74:H-top-70)/rows-gap;
+  T.forEach(([h,col,L],k)=>{ const x=P+(k%cols)*(cw+gap), y=top+((k/cols)|0)*(bh+gap); rrx(x,y,cw,bh,12); ctx.fillStyle='#141822ee'; ctx.fill(); ctx.strokeStyle=col+'99'; ctx.lineWidth=2; ctx.stroke();
+    txt(h,x+cw/2,y+22,PORT?14:16,col); L.forEach(([a,b],q)=>{ const yy=y+44+q*lh; if(yy>y+bh-6) return; txt(a,x+10,yy,PORT?10:12,'#9aa2b8','left',false); txt(b,x+cw-10,yy,PORT?10:12,'#fff','right',false); }); });
+  txt('Personal records on this device. Counting started 14 Nov 2026 (all-time kills go back further). Online rankings against other players come later.',cx,H-(PORT?62:56),PORT?9:11,'#6a738c',undefined,false);
+  mbtn(PORT?cx-110:20,H-(PORT?50:46),220,40,'BACK',()=>{ state='challenges'; uiSfx('click'); },{size:18}); }
 function drawMissions(){
   menuBG(.9); const cx=W/2; txt('SELECT MISSION',cx,PORT?56:48,PORT?36:34,'#ffe08a'); profileBar(PORT?cx-150:W-300,PORT?86:40,PORT?150:110);
   const cols=PORT?2:5, gap=PORT?12:14, top=PORT?112:78, cw=PORT?(W-40-gap)/2:(W-60-gap*4)/5, ch=PORT?(H-top-100-gap*4)/5:(H-top-84-gap)/2, left=PORT?20:30;
@@ -2655,10 +2713,33 @@ function drawCustom(){
   if(custMsg&&performance.now()<custMsg.until) txt(custMsg.t,PORT?cx:W/2+140,PORT?H-110:H-34,PORT?18:17,'#ffd24a');
   if(!NAV) mbtn(PORT?cx-110:20,PORT?H-84:H-62,220,48,'BACK',()=>{ state='title'; },{size:22});
 }
+let trainSub=1;
+function drawEvolve(top){ const cx=W/2, ev=prof.ev||0, nx=ev+1, rows=7, bot=H-10, rh=(bot-top)/rows, px=PORT?W*.2:W*.16, t=performance.now()/1000;
+  const hi=Math.max(nx+3,rows), lo=hi-rows+1;
+  ctx.strokeStyle='#2a3042'; ctx.lineWidth=6; ctx.beginPath(); ctx.moveTo(px,top+rh*.5); ctx.lineTo(px,top+rh*(rows-.5)); ctx.stroke();
+  for(let r=0;r<rows;r++){ const i=hi-r, y=top+rh*(r+.5), T=evType(i), big=T===EVBIG, s=(big?60:48)*Math.min(1,rh/64), own=i<=ev, cur=i===nx;
+    if(own){ ctx.strokeStyle=T.col; ctx.lineWidth=6; ctx.beginPath(); ctx.moveTo(px,y); ctx.lineTo(px,Math.min(top+rh*(rows-.5),y+rh)); ctx.stroke(); }
+    rrx(px-s/2,y-s/2,s,s,10); ctx.fillStyle=own?T.col:cur?'#262d40':'#161a24'; ctx.fill(); ctx.lineWidth=cur?3+Math.sin(t*5):2; ctx.strokeStyle=cur?'#ffffff':own?'#0b0d12':'#3a4258'; ctx.stroke();
+    txt(big?'★':T.s,px,y+(big?8:5),big?28:13,own?'#0b0d12':cur?T.col:'#566078',undefined,false);
+    const dx=px+s/2+(PORT?26:34); ctx.save(); ctx.translate(dx,y); ctx.rotate(Math.PI/4); ctx.fillStyle=own?'#2e3a22':'#141822'; ctx.fillRect(-13,-13,26,26); ctx.strokeStyle=own?'#8fd13a':'#3a4258'; ctx.lineWidth=2; ctx.strokeRect(-13,-13,26,26); ctx.restore();
+    txt(String(i),dx,y+5,12,own?'#e8ffd0':'#9aa2b8',undefined,false);
+    if(!PORT) txt(T.n+'  '+(big?'big boost, paid in gems':T.d),dx+30,y+5,12,own?'#cfe8b0':cur?'#ffe08a':'#566078','left',false); }
+  const C=evCnt(), pw=PORT?W-2*16:Math.min(420,W*.38), pX=PORT?16:W-pw-28, pY=PORT?top+rh*rows-170:top+10, ph=PORT?160:bot-top-20;
+  if(!PORT){ rrx(pX,pY,pw,ph,14); ctx.fillStyle='#141822ee'; ctx.fill(); ctx.strokeStyle='#3a4258'; ctx.lineWidth=2; ctx.stroke(); }
+  const T=evType(nx), c=evCost(nx), can=c.gem?(prof.gems||0)>=c.gem:prof.gold>=c.gold;
+  let y=pY+(PORT?6:28); txt('EVOLVE  -  STEP '+nx,pX+pw/2,y,PORT?18:20,'#ffe08a'); y+=PORT?22:28; txt(T.n+':  '+T.d,pX+pw/2,y,PORT?12:13,T.col,undefined,false); y+=PORT?14:30;
+  if(!PORT){ [['LIFE','+'+(5*C.hp+15*C.big)],['DAMAGE','+'+Math.round((2*C.dmg+5*C.big))+'%'],['ARMOR','-'+Math.min(40,C.arm)+'% damage taken'],['AMMO','+'+3*C.ammo+'% max ammo'],['LUCK','+'+2*C.luck+'% gold and loot'],['EVOLUTIONS',C.big+'  ('+5*C.big+' shield each stage)']].forEach(([a,b])=>{ txt(a,pX+24,y,13,'#9a9f7a','left',false); txt(b,pX+pw-24,y,13,'#fff','right',false); y+=22; });
+    txt('next EVOLUTION at step '+(Math.ceil(nx/10)*10),pX+pw/2,y+6,12,'#ffb020',undefined,false); }
+  const bw=PORT?pw:pw-40, bh=PORT?54:58, bx=pX+(pw-bw)/2, by=pY+ph-bh-(PORT?0:18);
+  if(custMsg&&performance.now()<custMsg.until) txt(custMsg.t.length>58?custMsg.t.slice(0,56)+'..':custMsg.t,bx+bw/2,by-8,11,'#ffd24a',undefined,false);
+  mbtn(bx,by,bw,bh,'',()=>evBuy(),{fill:can?'#2e5a22':'#2a3042',stroke:can?'#9aea7a':'#555'});
+  outlined('EVOLVE',bx+bw/2-(PORT?40:50),by+bh/2+8,PORT?24:26,'#fff','#12300a',6); if(c.gem){ gemIcon(bx+bw/2+40,by+bh/2,14); txt(String(c.gem),bx+bw/2+56,by+bh/2+6,18,can?'#7dffb0':'#ff9a8a','left',false); } else txt('● '+c.gold,bx+bw/2+30,by+bh/2+7,19,can?'#ffd24a':'#ff9a8a','left',false); }
 function drawShop(){
   menuBG(.9); const cx=W/2;
-  if(!NAV){ txt('UPGRADES',cx,PORT?60:50,PORT?38:36,'#ffe08a'); txt('Permanent boosts - spend the gold you collect',cx,PORT?90:76,PORT?14:15,'#cfd6e6'); txt('● '+prof.gold,PORT?W-24:W-40,PORT?60:50,24,'#ffd24a','right'); } else txt('TRAIN  -  permanent boosts',cx,PORT?30:22,PORT?20:17,'#ffe08a');
-  const keys_=Object.keys(UPG), gp=PORT?8:6, y0=NAV?(PORT?48:36):(PORT?120:90), rx=PORT?20:60, rw=W-2*rx, backY=NAV?H-6:(PORT?H-84:H-62), rh=Math.max(56,Math.min(PORT?118:70,Math.floor((backY-12-y0-4*gp)/5))), cmp=rh<66;     // rows shrink so the last one (Jet Tank) always ends above the BACK button
+  if(NAV){ const tw=PORT?150:170, ty=PORT?8:6; [['UPGRADES',0],['EVOLVE',1]].forEach(([n,k],q)=>mbtn(cx-tw-6+q*(tw+12),ty,tw,32,n,()=>{ trainSub=k; uiSfx('click'); },{sel:trainSub===k,size:15}));
+    if(trainSub===1){ drawEvolve(ty+40); return; } }
+  if(!NAV){ txt('UPGRADES',cx,PORT?60:50,PORT?38:36,'#ffe08a'); txt('Permanent boosts - spend the gold you collect',cx,PORT?90:76,PORT?14:15,'#cfd6e6'); txt('● '+prof.gold,PORT?W-24:W-40,PORT?60:50,24,'#ffd24a','right'); }
+  const keys_=Object.keys(UPG), gp=PORT?8:6, y0=NAV?(PORT?48:44):(PORT?120:90), rx=PORT?20:60, rw=W-2*rx, backY=NAV?H-6:(PORT?H-84:H-62), rh=Math.max(56,Math.min(PORT?118:70,Math.floor((backY-12-y0-4*gp)/5))), cmp=rh<66;     // rows shrink so the last one (Jet Tank) always ends above the BACK button
   keys_.forEach((k,i)=>{ const u=UPG[k], lv=prof.upg[k], max=lv>=5, cost=u.cost[lv], y=y0+i*(rh+gp);
     rrx(rx,y,rw,rh,12); ctx.fillStyle='#1c2230'; ctx.fill(); ctx.strokeStyle='#5a5f3a'; ctx.lineWidth=2; ctx.stroke();
     txt(u.n,rx+16,y+(cmp?21:PORT?32:28),cmp?18:PORT?22:20,'#ffe08a','left'); txt(u.d,rx+16,y+(cmp?38:PORT?58:50),cmp?13:PORT?15:14,'#cfd6e6','left');
@@ -2696,7 +2777,7 @@ addEventListener('keydown',e=>{
   if(wheelOpen&&e.code==='Escape'){ wheelOpen=false; e.preventDefault(); return; }
   if(state==='bench'){ if(e.code==='Escape'||e.code==='KeyE'||e.code==='Enter'){ closeBench(); e.preventDefault(); } else if(e.code==='ArrowLeft') cycBench(-1); else if(e.code==='ArrowRight') cycBench(1); return; }
   if(mk(e.code)){ keys[mk(e.code)]=true; if(mk(e.code)==='use'&&!e.repeat) keys._usePressed=true; if(e.code==='Space'||e.code.startsWith('Arrow')) e.preventDefault(); }
-  if(MENU[state]||state==='win'){ if(isHome(state)&&(e.code==='ArrowLeft'||e.code==='ArrowRight')){ goTab(HOME.indexOf(state)+(e.code==='ArrowRight'?1:-1)); return; } if(state==='title'||state==='win'){ if(e.code==='Enter'||e.code==='Space'){ state='missions'; } } else if(e.code==='Escape'||(state==='pause'&&e.code==='KeyP')){ if(state==='settings') state=settingsFrom; else if(state==='pause') state='play'; else if(isHome(state)){ if(state!=='title') goTab(2); } else state=state==='loadout'?'missions':'title'; } return; }
+  if(MENU[state]||state==='win'){ if(isHome(state)&&(e.code==='ArrowLeft'||e.code==='ArrowRight')){ goTab(HOME.indexOf(state)+(e.code==='ArrowRight'?1:-1)); return; } if(state==='title'||state==='win'){ if(e.code==='Enter'||e.code==='Space'){ state='missions'; } } else if(e.code==='Escape'||(state==='pause'&&e.code==='KeyP')){ if(state==='settings') state=settingsFrom; else if(state==='pause') state='play'; else if(isHome(state)){ if(state!=='title') goTab(2); } else if(state==='stats') state='challenges'; else state=state==='loadout'?'missions':'title'; } return; }
   if(e.code==='KeyP'||e.code==='Escape'){ if(state==='play'){ state='pause'; releaseKeys(); } else if(state==='pause') state='play'; }
   if(e.code==='KeyH'&&!e.repeat&&(state==='play'||state==='pause')){ openGuide(); releaseKeys(); e.preventDefault(); return; }
   if(e.code==='KeyM'){ const off=!(muted&&musicOff); muted=off; musicOff=off; prof.sfxOff=off; prof.musicOff=off; prof.muted=false; saveProfile(); }
